@@ -593,6 +593,87 @@
         .history-delta.negative { color: var(--danger-red); background: rgba(231, 76, 60, 0.12); }
         .history-delta.neutral { color: var(--ash); background: rgba(255, 255, 255, 0.04); }
 
+        /* ---- Season Challenges ---- */
+        .panel-box {
+            background: rgba(20, 26, 38, 0.55);
+            border: 1px solid rgba(200, 162, 75, 0.25);
+            border-left: 4px solid var(--rune-gold);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-top: 1.2rem;
+        }
+
+        .challenges-summary {
+            display: flex;
+            align-items: baseline;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+
+        .challenges-summary .challenges-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ash);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .challenges-summary .challenges-level {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--rune-gold);
+        }
+
+        .challenges-summary .challenges-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+            font-size: 0.8rem;
+            color: var(--ash);
+        }
+
+        .challenge-badges {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .challenge-badge {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(200, 162, 75, 0.2);
+            border-radius: 6px;
+            padding: 0.55rem 1rem;
+            min-width: 150px;
+        }
+
+        .challenge-badge .badge-name {
+            font-size: 0.8rem;
+            color: var(--parchment);
+            font-weight: 600;
+        }
+
+        .challenge-badge .badge-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.3rem;
+        }
+
+        .challenge-badge .badge-level {
+            font-size: 0.65rem;
+            color: var(--rune-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .challenge-badge .badge-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+            font-size: 0.7rem;
+            color: var(--ash);
+        }
+
         /* ========== CLIPS SECTION ========== */
         .clips-grid {
             display: grid;
@@ -885,6 +966,7 @@
         </div>
         <div class="mastery-row" id="masteryRow"></div>
         <div class="profile-panel history-panel" id="historyPanel" style="margin-top: 1.2rem;" hidden></div>
+        <div class="panel-box" id="challengesPanel" hidden></div>
     </section>
 
     <!-- CLIPS SECTION -->
@@ -1065,6 +1147,45 @@
 
             renderMastery(data.topChampions);
             renderLiveMatch(data.liveGame);
+            renderChallenges(data.challenges);
+        }
+
+        // ===== SEASON CHALLENGES =====
+        function renderChallenges(challenges) {
+            const panel = document.getElementById('challengesPanel');
+            if (!challenges || !challenges.totalLevel) {
+                panel.hidden = true;
+                panel.innerHTML = '';
+                return;
+            }
+
+            const metaParts = [];
+            if (challenges.totalPoints != null) {
+                metaParts.push(`${Number(challenges.totalPoints).toLocaleString('de-DE')} Punkte`);
+            }
+            if (challenges.percentile) {
+                metaParts.push(challenges.percentile);
+            }
+
+            const badges = (challenges.highlights || []).map(h => `
+                <div class="challenge-badge">
+                    <div class="badge-name">${escapeHtml(h.name)}</div>
+                    <div class="badge-meta">
+                        <span class="badge-level">${escapeHtml(h.level)}</span>
+                        ${h.value != null ? `<span class="badge-value">${Number(h.value).toLocaleString('de-DE')}</span>` : ''}
+                    </div>
+                </div>
+            `).join('');
+
+            panel.innerHTML = `
+                <div class="challenges-summary">
+                    <span class="challenges-title">🏆 Season Highlights</span>
+                    <span class="challenges-level">${escapeHtml(challenges.totalLevel)}</span>
+                    <span class="challenges-meta">${escapeHtml(metaParts.join(' · '))}</span>
+                </div>
+                ${badges ? `<div class="challenge-badges">${badges}</div>` : ''}
+            `;
+            panel.hidden = false;
         }
 
         // ===== CHAMPION MASTERY =====
