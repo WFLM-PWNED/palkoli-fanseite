@@ -41,7 +41,7 @@ jobs:
           # Neue Shorts fetchen
           request = youtube.search().list(
               part='snippet',
-              forChannelId=UCuZR93eRLuEQ7-DVKfBTsEQ,
+              forChannelId="UCuZR93eRLuEQ7-DVKfBTsEQ",
               maxResults=10,
               order='date',
               type='video',
