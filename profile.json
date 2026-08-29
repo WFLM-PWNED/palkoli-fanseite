@@ -1,12 +1,12 @@
 {
   "tier": "Emerald",
   "rank": "4",
-  "leaguePoints": 92,
+  "leaguePoints": 71,
   "wins": 201,
-  "losses": 211,
+  "losses": 212,
   "recentForm": [
-    "L",
     "W",
+    "L",
     "L",
     "L",
     "L"
@@ -16,7 +16,7 @@
       "name": "Teemo",
       "image": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Teemo.png",
       "level": 62,
-      "points": 657358
+      "points": 658153
     },
     {
       "name": "Ashe",
@@ -33,9 +33,9 @@
   ],
   "liveGame": {
     "inGame": true,
-    "gameMode": "CLASSIC",
-    "gameLengthMinutes": 19,
-    "championName": "Teemo"
+    "gameMode": "KIWI",
+    "gameLengthMinutes": 15,
+    "championName": "Jarvan IV"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -43,21 +43,21 @@
     "percentile": "Top 3%",
     "highlights": [
       {
+        "name": "Level 1 Fiesta",
+        "level": "Challenger",
+        "value": 479.0
+      },
+      {
         "name": "Global Defense System",
         "level": "Challenger",
-        "value": 765.0
+        "value": 766.0
       },
       {
         "name": "Gets The Wurm",
         "level": "Challenger",
         "value": 287.0
-      },
-      {
-        "name": "Level 1 Fiesta",
-        "level": "Challenger",
-        "value": 479.0
       }
     ]
   },
-  "lastUpdate": "2026-08-29 20:06 UTC"
+  "lastUpdate": "2026-08-29 20:36 UTC"
 }
