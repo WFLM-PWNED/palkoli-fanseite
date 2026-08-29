@@ -1,0 +1,147 @@
+name: Auto-Update Riot Profile Stats
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Alle 6 Stunden
+  workflow_dispatch:  # Manuell triggern
+
+jobs:
+  update-profile:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install requests
+
+      - name: Fetch Riot Stats and Update profile.json
+        run: |
+          python3 << 'EOF'
+          import json
+          import time
+          import urllib.parse
+          import requests
+          from datetime import datetime, timezone
+
+          # ---- Konfiguration ----
+          RIOT_API_KEY = "${{ secrets.RIOT_API_KEY }}"
+          GAME_NAME = "WFLM PWNED"
+          TAG_LINE = "EUW"
+          PLATFORM = "euw1"      # Plattform-Routing (Rang, Liga)
+          REGION = "europe"      # Regions-Routing (Account, Matches)
+          RANKED_QUEUE_ID = 420  # 420 = Ranked Solo/Duo
+          MATCH_COUNT = 5
+
+          HEADERS = {"X-Riot-Token": RIOT_API_KEY}
+          RANK_TO_NUMBER = {"I": "1", "II": "2", "III": "3", "IV": "4"}
+
+          def riot_get(url, params=None):
+              res = requests.get(url, headers=HEADERS, params=params, timeout=15)
+              if res.status_code == 429:
+                  retry_after = int(res.headers.get("Retry-After", 5))
+                  print(f"⏳ Rate limit erreicht, warte {retry_after}s...")
+                  time.sleep(retry_after)
+                  res = requests.get(url, headers=HEADERS, params=params, timeout=15)
+              res.raise_for_status()
+              return res.json()
+
+          # Schritt 1: Riot ID -> PUUID
+          encoded_name = urllib.parse.quote(GAME_NAME)
+          encoded_tag = urllib.parse.quote(TAG_LINE)
+          account_url = f"https://{REGION}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{encoded_name}/{encoded_tag}"
+
+          try:
+              account_data = riot_get(account_url)
+          except requests.exceptions.HTTPError as e:
+              print(f"❌ Konnte Riot-Account nicht finden: {e}")
+              exit(1)
+
+          puuid = account_data["puuid"]
+          print(f"✅ PUUID gefunden fuer {GAME_NAME}#{TAG_LINE}")
+
+          # Schritt 2: Rang-Infos abrufen
+          league_url = f"https://{PLATFORM}.api.riotgames.com/lol/league/v4/entries/by-puuid/{puuid}"
+          league_entries = riot_get(league_url)
+
+          solo_queue = next(
+              (e for e in league_entries if e.get("queueType") == "RANKED_SOLO_5x5"),
+              None
+          )
+
+          if solo_queue:
+              profile = {
+                  "tier": solo_queue["tier"].capitalize(),
+                  "rank": RANK_TO_NUMBER.get(solo_queue["rank"], solo_queue["rank"]),
+                  "leaguePoints": solo_queue["leaguePoints"],
+                  "wins": solo_queue["wins"],
+                  "losses": solo_queue["losses"],
+              }
+          else:
+              print("ℹ️  Kein Ranked Solo/Duo Eintrag gefunden (unranked).")
+              profile = {
+                  "tier": "Unranked",
+                  "rank": "",
+                  "leaguePoints": 0,
+                  "wins": 0,
+                  "losses": 0,
+              }
+
+          # Schritt 3: Letzte Matches fuer die "Form"-Anzeige
+          matches_url = f"https://{REGION}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids"
+          match_ids = riot_get(matches_url, params={
+              "queue": RANKED_QUEUE_ID,
+              "start": 0,
+              "count": MATCH_COUNT
+          })
+
+          # Falls keine Ranked-Matches gefunden wurden, auf alle Spielmodi ausweichen
+          if not match_ids:
+              print("ℹ️  Keine Ranked-Matches gefunden, nutze allgemeine Match-History.")
+              match_ids = riot_get(matches_url, params={"start": 0, "count": MATCH_COUNT})
+
+          recent_form = []
+          for match_id in match_ids:
+              time.sleep(1.2)  # kleine Pause zwischen Requests
+              match_url = f"https://{REGION}.api.riotgames.com/lol/match/v5/matches/{match_id}"
+              try:
+                  match_data = riot_get(match_url)
+              except requests.exceptions.HTTPError as e:
+                  print(f"⚠️  Match {match_id} konnte nicht geladen werden: {e}")
+                  continue
+
+              participant = next(
+                  (p for p in match_data["info"]["participants"] if p["puuid"] == puuid),
+                  None
+              )
+              if participant:
+                  recent_form.append("W" if participant["win"] else "L")
+
+          # Aelteste zuerst, neuestes Spiel zuletzt anzeigen
+          recent_form.reverse()
+          profile["recentForm"] = recent_form
+          profile["lastUpdate"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+          with open("profile.json", "w") as f:
+              json.dump(profile, f, indent=2, ensure_ascii=False)
+
+          print(f"✅ Profil aktualisiert: {profile['tier']} {profile['rank']} · {profile['leaguePoints']} LP")
+          print(f"   Siege: {profile['wins']} | Niederlagen: {profile['losses']} | Form: {recent_form}")
+
+          EOF
+
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add profile.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🛡️ Auto-update: Riot Profil-Stats aktualisiert" && git pull --rebase origin main && git push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
