@@ -6,7 +6,7 @@
     <title>palkoli - League of Legends Streamer</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -28,12 +28,24 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background: linear-gradient(135deg, var(--void-ink) 0%, #0f1419 100%);
+            background:
+                radial-gradient(ellipse 900px 500px at 15% 0%, rgba(44, 92, 143, 0.14), transparent 60%),
+                radial-gradient(ellipse 700px 500px at 100% 20%, rgba(140, 47, 58, 0.10), transparent 55%),
+                linear-gradient(135deg, var(--void-ink) 0%, #0f1419 100%);
+            background-attachment: fixed;
             font-family: 'Inter', sans-serif;
             color: var(--parchment);
             line-height: 1.6;
             min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            text-wrap: balance;
         }
 
         /* ========== NAVBAR ========== */
@@ -266,11 +278,22 @@
             margin-bottom: 1.5rem;
         }
 
-        /* ========== CLIPS SECTION ========== */
+        /* ========== SHARED SECTION HEADER ========== */
         .section {
             max-width: 1200px;
             margin: 4rem auto 2rem;
             padding: 0 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--rune-gold);
         }
 
         .section-title {
@@ -278,113 +301,307 @@
             font-size: 2.2rem;
             font-weight: 700;
             letter-spacing: 0.02em;
-            margin-bottom: 2rem;
             color: var(--parchment);
-            border-bottom: 2px solid var(--rune-gold);
-            padding-bottom: 0.8rem;
         }
 
+        .section-subtitle {
+            font-size: 0.95rem;
+            color: var(--ash);
+            margin-top: 0.3rem;
+        }
+
+        .section-link {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--hextech-blue-light);
+            text-decoration: none;
+            white-space: nowrap;
+            padding-bottom: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .section-link:hover {
+            color: var(--gold-light);
+        }
+
+        /* ========== SUMMONER PROFILE SECTION ========== */
+        .profile-panel {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 2.5rem;
+            background: rgba(20, 26, 38, 0.55);
+            border: 1px solid rgba(200, 162, 75, 0.25);
+            border-left: 4px solid var(--rune-gold);
+            border-radius: 8px;
+            padding: 2rem 2.5rem;
+        }
+
+        .rank-crest {
+            flex-shrink: 0;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 35%, rgba(200, 162, 75, 0.22), rgba(11, 14, 20, 0.4) 70%);
+            border: 2px solid var(--rune-gold);
+            box-shadow: 0 0 26px rgba(200, 162, 75, 0.15) inset;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        .rank-crest .tier {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 0.03em;
+            color: var(--rune-gold);
+            text-transform: uppercase;
+        }
+
+        .rank-crest .lp {
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+            font-size: 0.7rem;
+            color: var(--ash);
+            margin-top: 3px;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-block {
+            text-align: center;
+            padding: 0.7rem 1.3rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 6px;
+            min-width: 80px;
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--parchment);
+        }
+
+        .stat-value.winrate {
+            color: var(--rune-gold);
+        }
+
+        .stat-label {
+            font-size: 0.68rem;
+            color: var(--ash);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.25rem;
+        }
+
+        .form-wrap {
+            text-align: center;
+        }
+
+        .form-wrap .form-caption {
+            font-size: 0.68rem;
+            color: var(--ash);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.6rem;
+        }
+
+        .form-pips {
+            display: flex;
+            gap: 0.4rem;
+            justify-content: center;
+        }
+
+        .pip {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 0.72rem;
+            color: var(--parchment);
+        }
+
+        .pip.win { background: rgba(44, 92, 143, 0.55); border: 1px solid var(--hextech-blue); }
+        .pip.loss { background: rgba(140, 47, 58, 0.55); border: 1px solid var(--noxus-crimson); }
+
+        .profile-placeholder {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--ash);
+            padding: 1rem;
+        }
+
+        /* ========== CLIPS SECTION ========== */
         .clips-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .clip-card {
-            background: rgba(11, 14, 20, 0.6);
-            border: 1px solid rgba(200, 162, 75, 0.3);
-            border-radius: 6px;
+            position: relative;
+            aspect-ratio: 9 / 16;
+            border-radius: 10px;
             overflow: hidden;
-            transition: all 0.3s;
+            background: linear-gradient(135deg, var(--hextech-blue), var(--noxus-crimson));
+            border: 1px solid rgba(200, 162, 75, 0.25);
             cursor: pointer;
+            transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease, border-color 0.3s ease;
         }
 
         .clip-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
             border-color: var(--rune-gold);
-            box-shadow: 0 8px 20px rgba(200, 162, 75, 0.2);
-            transform: translateY(-4px);
         }
 
-        .clip-thumbnail {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: linear-gradient(135deg, var(--hextech-blue), var(--noxus-crimson));
-            object-fit: cover;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .clip-thumbnail::after {
-            content: '';
+        .clip-thumbnail-img {
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,0) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" opacity="0.3"><path d="M8 5v14l11-7z"/></svg>') center/40px no-repeat;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.4s ease, transform 0.5s ease;
         }
 
-        .clip-card:hover .clip-thumbnail::after {
+        .clip-thumbnail-img.loaded {
             opacity: 1;
         }
 
-        .clip-info {
-            padding: 1.2rem;
+        .clip-card:hover .clip-thumbnail-img {
+            transform: scale(1.08);
+        }
+
+        .clip-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(11,14,20,0) 40%, rgba(11,14,20,0.55) 72%, rgba(11,14,20,0.94) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 0.9rem;
+        }
+
+        .clip-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(11, 14, 20, 0.55);
+            border: 1.5px solid rgba(237, 230, 214, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .clip-play-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--parchment);
+            margin-left: 2px;
+        }
+
+        .clip-card:hover .clip-play-btn {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .clip-badge-source {
+            position: absolute;
+            top: 0.6rem;
+            left: 0.6rem;
+            padding: 0.22rem 0.55rem;
+            border-radius: 20px;
+            font-size: 0.62rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(6px);
+            background: rgba(11, 14, 20, 0.55);
+            border: 1px solid rgba(237, 230, 214, 0.15);
+            color: var(--parchment);
+        }
+
+        .clip-badge-source.youtube { color: #ff6b6b; }
+        .clip-badge-source.twitch { color: #b394f5; }
+
+        .clip-badge-new {
+            position: absolute;
+            top: 0.6rem;
+            right: 0.6rem;
+            padding: 0.22rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            background: var(--rune-gold);
+            color: var(--void-ink);
         }
 
         .clip-title {
             font-family: 'Oswald', sans-serif;
             font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--parchment);
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-
-        .clip-meta {
-            display: flex;
-            justify-content: space-between;
             font-size: 0.85rem;
+            line-height: 1.35;
+            color: var(--parchment);
+            margin-bottom: 0.3rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+        }
+
+        .clip-date {
+            font-size: 0.68rem;
             color: var(--ash);
+            font-family: 'JetBrains Mono', monospace;
         }
 
-        .clip-source {
-            display: inline-block;
-            padding: 0.3rem 0.6rem;
-            background: rgba(60, 92, 143, 0.3);
-            border-radius: 3px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 500;
-            color: var(--hextech-blue-light);
+        .skeleton-card {
+            aspect-ratio: 9 / 16;
+            border-radius: 10px;
+            border: 1px solid rgba(200, 162, 75, 0.15);
+            background: linear-gradient(100deg, rgba(255,255,255,0.03) 30%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 70%);
+            background-size: 200% 100%;
+            animation: shimmer 1.4s ease-in-out infinite;
         }
 
-        .clip-source.youtube {
-            background: rgba(230, 126, 34, 0.2);
-            color: #e67e22;
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
 
-        .loading {
+        .clips-empty {
+            grid-column: 1 / -1;
             text-align: center;
-            padding: 2rem;
             color: var(--ash);
-        }
-
-        .spinner {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            border: 3px solid rgba(200, 162, 75, 0.3);
-            border-top-color: var(--rune-gold);
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+            padding: 2rem;
         }
 
         /* ========== FOOTER ========== */
@@ -429,12 +646,29 @@
                 gap: 1rem;
             }
 
-            .clips-grid {
-                grid-template-columns: 1fr;
-            }
-
             .section-title {
                 font-size: 1.8rem;
+            }
+
+            .profile-panel {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+                gap: 1.5rem;
+            }
+
+            .clips-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 1rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .logo-badge, .status-badge.live, .clip-card, .clip-thumbnail-img,
+            .clip-play-btn, .skeleton-card, .btn-primary {
+                animation: none !important;
+                transition: none !important;
             }
         }
     </style>
@@ -448,8 +682,8 @@
                 PALKOLI
             </a>
             <ul class="nav-links">
+                <li><a href="#profile">Profil</a></li>
                 <li><a href="#clips">Clips</a></li>
-                <li><a href="#streams">Streams</a></li>
                 <li><a href="#socials">Socials</a></li>
             </ul>
         </div>
@@ -489,15 +723,29 @@
         </div>
     </section>
 
-    <!-- CLIPS SECTION -->
-    <section class="section" id="clips">
-        <h2 class="section-title">📹 Highlight Clips</h2>
-        <div class="clips-grid" id="clipsContainer">
-            <div class="loading">
-                <div class="spinner"></div>
-                <p>Clips werden geladen...</p>
+    <!-- SUMMONER PROFILE SECTION -->
+    <section class="section" id="profile">
+        <div class="section-header">
+            <div>
+                <h2 class="section-title">🛡️ Summoner Profil</h2>
+                <p class="section-subtitle">Aktuelle Season-Stats auf dem Rift</p>
             </div>
         </div>
+        <div class="profile-panel" id="profilePanel">
+            <div class="profile-placeholder">Profil-Daten werden geladen…</div>
+        </div>
+    </section>
+
+    <!-- CLIPS SECTION -->
+    <section class="section" id="clips">
+        <div class="section-header">
+            <div>
+                <h2 class="section-title">📹 Highlight Clips</h2>
+                <p class="section-subtitle">Automatisch aktualisiert aus meinen neuesten YouTube Shorts</p>
+            </div>
+            <a href="https://youtube.com/@WFLMPwned/shorts" target="_blank" class="section-link">Alle Shorts ansehen →</a>
+        </div>
+        <div class="clips-grid" id="clipsContainer"></div>
     </section>
 
     <!-- FOOTER -->
@@ -511,8 +759,22 @@
     </footer>
 
     <script>
-        // ===== LOAD CLIPS FROM JSON =====
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str ?? '';
+            return div.innerHTML;
+        }
+
+        // ===== CLIPS =====
+        function renderClipSkeletons(count) {
+            const container = document.getElementById('clipsContainer');
+            container.innerHTML = Array.from({ length: count })
+                .map(() => '<div class="skeleton-card"></div>')
+                .join('');
+        }
+
         async function loadClips() {
+            renderClipSkeletons(6);
             try {
                 const response = await fetch('clips.json');
                 if (!response.ok) throw new Error('Clips nicht gefunden');
@@ -521,8 +783,14 @@
             } catch (error) {
                 console.error('Error loading clips:', error);
                 document.getElementById('clipsContainer').innerHTML =
-                    '<p style="text-align: center; color: var(--ash);">Fehler beim Laden der Clips</p>';
+                    '<p class="clips-empty">Fehler beim Laden der Clips</p>';
             }
+        }
+
+        function isRecent(dateStr, days) {
+            const date = new Date(dateStr);
+            if (isNaN(date)) return false;
+            return (Date.now() - date.getTime()) < days * 24 * 60 * 60 * 1000;
         }
 
         function renderClips(clips) {
@@ -530,7 +798,7 @@
             container.innerHTML = '';
 
             if (!clips || clips.length === 0) {
-                container.innerHTML = '<p style="text-align: center; color: var(--ash);">Noch keine Clips vorhanden</p>';
+                container.innerHTML = '<p class="clips-empty">Noch keine Clips vorhanden</p>';
                 return;
             }
 
@@ -539,14 +807,20 @@
                 card.className = 'clip-card';
                 card.onclick = () => window.open(clip.url, '_blank');
 
+                const sourceClass = (clip.source || '').toLowerCase();
+                const newBadge = isRecent(clip.date, 3) ? '<div class="clip-badge-new">NEU</div>' : '';
+
                 card.innerHTML = `
-                    <img src="${clip.thumbnail}" alt="${clip.title}" class="clip-thumbnail" onerror="this.style.display='none'">
-                    <div class="clip-info">
-                        <div class="clip-title">${clip.title}</div>
-                        <div class="clip-meta">
-                            <span class="clip-source ${clip.source.toLowerCase()}">${clip.source}</span>
-                            <span>${clip.date}</span>
-                        </div>
+                    <img src="${clip.thumbnail}" alt="${escapeHtml(clip.title)}" class="clip-thumbnail-img"
+                         loading="lazy" decoding="async"
+                         onload="this.classList.add('loaded')"
+                         onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src=this.src.replace('maxresdefault','hqdefault');}else{this.style.display='none';}">
+                    <div class="clip-badge-source ${sourceClass}">${escapeHtml(clip.source)}</div>
+                    ${newBadge}
+                    <div class="clip-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                    <div class="clip-overlay">
+                        <div class="clip-title">${escapeHtml(clip.title)}</div>
+                        <div class="clip-date">${escapeHtml(clip.date)}</div>
                     </div>
                 `;
 
@@ -554,7 +828,7 @@
             });
         }
 
-        // ===== LOAD STREAM STATUS =====
+        // ===== STREAM STATUS =====
         async function loadStreamStatus() {
             try {
                 const response = await fetch('status.json');
@@ -563,7 +837,6 @@
                 updateStreamStatus(data);
             } catch (error) {
                 console.error('Error loading status:', error);
-                // Keep default offline status
             }
         }
 
@@ -589,9 +862,61 @@
             }
         }
 
+        // ===== SUMMONER PROFILE =====
+        async function loadProfileStats() {
+            try {
+                const response = await fetch('profile.json');
+                if (!response.ok) throw new Error('Profil nicht gefunden');
+                const data = await response.json();
+                renderProfileStats(data);
+            } catch (error) {
+                console.error('Error loading profile:', error);
+                document.getElementById('profilePanel').innerHTML =
+                    '<div class="profile-placeholder">Profil-Daten folgen bald.</div>';
+            }
+        }
+
+        function renderProfileStats(data) {
+            const wins = Number(data.wins) || 0;
+            const losses = Number(data.losses) || 0;
+            const total = wins + losses;
+            const winratePct = total > 0 ? Math.round((wins / total) * 100) : null;
+            const form = Array.isArray(data.recentForm) ? data.recentForm : [];
+
+            const lpText = data.leaguePoints != null ? `· ${data.leaguePoints} LP` : '';
+
+            document.getElementById('profilePanel').innerHTML = `
+                <div class="rank-crest">
+                    <div class="tier">${escapeHtml(data.tier) || '–'}</div>
+                    <div class="lp">${escapeHtml(data.rank || '')} ${escapeHtml(lpText)}</div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-block">
+                        <div class="stat-value">${wins}</div>
+                        <div class="stat-label">Siege</div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-value">${losses}</div>
+                        <div class="stat-label">Niederl.</div>
+                    </div>
+                    <div class="stat-block">
+                        <div class="stat-value winrate">${winratePct !== null ? winratePct + '%' : '–'}</div>
+                        <div class="stat-label">Winrate</div>
+                    </div>
+                </div>
+                <div class="form-wrap">
+                    <div class="form-caption">Letzte ${form.length || 5} Spiele</div>
+                    <div class="form-pips">
+                        ${form.map(r => `<div class="pip ${r === 'W' ? 'win' : 'loss'}">${r}</div>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
         // Initialize
         loadClips();
         loadStreamStatus();
+        loadProfileStats();
 
         // Refresh status every 60 seconds
         setInterval(loadStreamStatus, 60000);
