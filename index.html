@@ -28,6 +28,12 @@
             box-sizing: border-box;
         }
 
+        /* Garantiert, dass das hidden-Attribut IMMER greift, egal welche
+           display-Regel eine Komponente weiter unten sonst noch setzt. */
+        [hidden] {
+            display: none !important;
+        }
+
         html {
             scroll-behavior: smooth;
         }
