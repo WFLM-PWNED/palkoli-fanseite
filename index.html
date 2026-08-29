@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WFLM PWNED - League of Legends Streamer</title>
+    <title>palkoli - League of Legends Streamer</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -472,6 +472,127 @@
             padding: 1rem;
         }
 
+        /* ---- Live Match Banner ---- */
+        .live-match-banner {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: rgba(39, 174, 96, 0.12);
+            border: 1px solid var(--success-green);
+            border-radius: 6px;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 1.2rem;
+            font-size: 0.88rem;
+        }
+
+        .live-match-banner .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--success-green);
+            flex-shrink: 0;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .live-match-banner .live-label {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: var(--success-green);
+        }
+
+        .live-match-banner .live-detail {
+            color: var(--parchment);
+        }
+
+        /* ---- Champion Mastery ---- */
+        .mastery-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .mastery-card {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(20, 26, 38, 0.55);
+            border: 1px solid rgba(200, 162, 75, 0.2);
+            border-radius: 8px;
+            padding: 0.7rem 1.1rem;
+            flex: 1;
+            min-width: 190px;
+        }
+
+        .mastery-card img {
+            width: 46px;
+            height: 46px;
+            border-radius: 6px;
+            border: 1.5px solid var(--rune-gold);
+            flex-shrink: 0;
+        }
+
+        .mastery-name {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--parchment);
+        }
+
+        .mastery-level {
+            font-size: 0.68rem;
+            color: var(--rune-gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-top: 0.15rem;
+        }
+
+        .mastery-points {
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+            font-size: 0.7rem;
+            color: var(--ash);
+            margin-top: 0.1rem;
+        }
+
+        /* ---- Rank History ---- */
+        .history-panel {
+            display: flex;
+            align-items: center;
+            gap: 1.3rem;
+            flex-wrap: wrap;
+        }
+
+        .history-label {
+            font-size: 0.68rem;
+            color: var(--ash);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+
+        .history-sparkline-wrap {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .history-delta {
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+            font-size: 0.88rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .history-delta.positive { color: var(--success-green); background: rgba(39, 174, 96, 0.12); }
+        .history-delta.negative { color: var(--danger-red); background: rgba(231, 76, 60, 0.12); }
+        .history-delta.neutral { color: var(--ash); background: rgba(255, 255, 255, 0.04); }
+
         /* ========== CLIPS SECTION ========== */
         .clips-grid {
             display: grid;
@@ -703,7 +824,7 @@
         <div class="navbar-container">
             <a href="#" class="logo">
                 <span class="logo-badge" id="statusBadge"></span>
-                WFLM PWNED
+                PALKOLI
             </a>
             <ul class="nav-links">
                 <li><a href="#profile">Profil</a></li>
@@ -738,9 +859,9 @@
         <div class="hero-image">
             <div class="profile-card">
                 <div class="profile-avatar">
-                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ashe_0.jpg" alt="">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ashe_0.jpg" alt="Ashe">
                 </div>
-                <div class="profile-name">WFLM PWNED</div>
+                <div class="profile-name">palkoli</div>
                 <div class="profile-desc">Bot Lane · ADC Main<br>League of Legends</div>
                 <div class="profile-main">🏹 Main: Ashe</div>
                 <div class="stream-status" style="background: rgba(44, 92, 143, 0.1); border-color: var(--hextech-blue); margin: 0;">
@@ -758,9 +879,12 @@
                 <p class="section-subtitle">Aktuelle Season-Stats auf dem Rift</p>
             </div>
         </div>
+        <div class="live-match-banner" id="liveMatchBanner" hidden></div>
         <div class="profile-panel" id="profilePanel">
             <div class="profile-placeholder">Profil-Daten werden geladen…</div>
         </div>
+        <div class="mastery-row" id="masteryRow"></div>
+        <div class="profile-panel history-panel" id="historyPanel" style="margin-top: 1.2rem;" hidden></div>
     </section>
 
     <!-- CLIPS SECTION -->
@@ -782,7 +906,7 @@
             <a href="https://youtube.com/@WFLMPwned" target="_blank">YouTube</a>
             <a href="https://discord.gg/example" target="_blank">Discord</a>
         </div>
-        <p>&copy; 2026 WFLM PWNED | Powered by League of Legends</p>
+        <p>&copy; 2026 palkoli | Powered by League of Legends</p>
     </footer>
 
     <script>
@@ -938,12 +1062,119 @@
                     </div>
                 </div>
             `;
+
+            renderMastery(data.topChampions);
+            renderLiveMatch(data.liveGame);
+        }
+
+        // ===== CHAMPION MASTERY =====
+        function renderMastery(topChampions) {
+            const row = document.getElementById('masteryRow');
+            if (!Array.isArray(topChampions) || topChampions.length === 0) {
+                row.innerHTML = '';
+                return;
+            }
+
+            row.innerHTML = topChampions.map(champ => `
+                <div class="mastery-card">
+                    <img src="${champ.image}" alt="${escapeHtml(champ.name)}" loading="lazy">
+                    <div>
+                        <div class="mastery-name">${escapeHtml(champ.name)}</div>
+                        <div class="mastery-level">Level ${champ.level}</div>
+                        <div class="mastery-points">${Number(champ.points).toLocaleString('de-DE')} Punkte</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ===== LIVE MATCH =====
+        function renderLiveMatch(liveGame) {
+            const banner = document.getElementById('liveMatchBanner');
+            if (!liveGame || !liveGame.inGame) {
+                banner.hidden = true;
+                banner.innerHTML = '';
+                return;
+            }
+
+            const champText = liveGame.championName ? ` auf ${escapeHtml(liveGame.championName)}` : '';
+            const timeText = liveGame.gameLengthMinutes != null ? ` · ${liveGame.gameLengthMinutes} Min.` : '';
+
+            banner.innerHTML = `
+                <span class="dot"></span>
+                <span class="live-label">Aktuell im Spiel</span>
+                <span class="live-detail">${champText}${timeText}</span>
+            `;
+            banner.hidden = false;
+        }
+
+        // ===== RANK HISTORY =====
+        async function loadRankHistory() {
+            try {
+                const response = await fetch('rank-history.json');
+                if (!response.ok) throw new Error('Rang-Verlauf nicht gefunden');
+                const data = await response.json();
+                renderRankHistory(data.history);
+            } catch (error) {
+                console.error('Error loading rank history:', error);
+                document.getElementById('historyPanel').hidden = true;
+            }
+        }
+
+        function renderRankHistory(history) {
+            const panel = document.getElementById('historyPanel');
+            if (!Array.isArray(history) || history.length < 2) {
+                panel.hidden = true;
+                return;
+            }
+
+            const points = history.map(h => Number(h.leaguePoints) || 0);
+            const min = Math.min(...points);
+            const max = Math.max(...points);
+            const range = max - min || 1;
+
+            const width = 300;
+            const height = 40;
+            const step = width / (points.length - 1);
+
+            const coords = points.map((p, i) => {
+                const x = i * step;
+                const y = height - ((p - min) / range) * (height - 6) - 3;
+                return `${x.toFixed(1)},${y.toFixed(1)}`;
+            });
+
+            const linePath = 'M' + coords.join(' L');
+            const areaPath = `${linePath} L${width},${height} L0,${height} Z`;
+            const lastCoord = coords[coords.length - 1].split(',');
+
+            const delta = points[points.length - 1] - points[0];
+            const deltaClass = delta > 0 ? 'positive' : delta < 0 ? 'negative' : 'neutral';
+            const deltaText = delta > 0 ? `+${delta} LP` : delta < 0 ? `${delta} LP` : '±0 LP';
+
+            panel.innerHTML = `
+                <div class="history-label">LP-Verlauf</div>
+                <div class="history-sparkline-wrap">
+                    <svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="none" style="width:100%; height:${height}px; display:block;">
+                        <defs>
+                            <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#C8A24B" stop-opacity="0.35"/>
+                                <stop offset="100%" stop-color="#C8A24B" stop-opacity="0"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="${areaPath}" fill="url(#sparkFill)" stroke="none"/>
+                        <path d="${linePath}" fill="none" stroke="#C8A24B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="${lastCoord[0]}" cy="${lastCoord[1]}" r="3.5" fill="#C8A24B"/>
+                    </svg>
+                </div>
+                <div class="history-delta ${deltaClass}">${deltaText}</div>
+            `;
+            panel.hidden = false;
         }
 
         // Initialize
         loadClips();
         loadStreamStatus();
         loadProfileStats();
+        loadRankHistory();
 
         // Refresh status every 60 seconds
         setInterval(loadStreamStatus, 60000);
