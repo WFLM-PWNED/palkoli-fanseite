@@ -26,7 +26,7 @@ jobs:
           youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
           request = youtube.search().list(
               part='snippet',
-              forChannelId="UCuZR93eRLuEQ7-DVKfBTsEQ",
+              forChannelId=YOUTUBE_CHANNEL_ID,
               maxResults=10,
               order='date',
               type='video',
