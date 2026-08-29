@@ -1,0 +1,36 @@
+{
+  "clips": [
+    {
+      "title": "Pentakill mit Lee Sin",
+      "description": "Unfassbare 5v1 Situation - unglaublicher Outplay",
+      "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "thumbnail": "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
+      "source": "YouTube",
+      "date": "2026-08-28"
+    },
+    {
+      "title": "Gank Counter - Jungle Domination",
+      "description": "Triple Kill im Jungle - perfektes Gank Setup",
+      "url": "https://www.youtube.com/watch?v=example1",
+      "thumbnail": "https://img.youtube.com/vi/example1/maxresdefault.jpg",
+      "source": "YouTube",
+      "date": "2026-08-27"
+    },
+    {
+      "title": "First Blood Highlight Montage",
+      "description": "Die besten Eröffnungen aus dieser Saison",
+      "url": "https://www.youtube.com/watch?v=example2",
+      "thumbnail": "https://img.youtube.com/vi/example2/maxresdefault.jpg",
+      "source": "YouTube",
+      "date": "2026-08-26"
+    },
+    {
+      "title": "Baron Steal - Comeback Win",
+      "description": "Unmöglicher Baron Steal bringt die Wende",
+      "url": "https://www.youtube.com/watch?v=example3",
+      "thumbnail": "https://img.youtube.com/vi/example3/maxresdefault.jpg",
+      "source": "Twitch",
+      "date": "2026-08-25"
+    }
+  ]
+}
