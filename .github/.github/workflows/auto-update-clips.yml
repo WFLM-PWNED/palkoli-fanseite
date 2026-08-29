@@ -32,23 +32,34 @@ jobs:
 
           # API Schlüssel und Channel Info
           YOUTUBE_API_KEY = "${{ secrets.YOUTUBE_API_KEY }}"
-          CHANNEL_NAME = "palkoli"  # Dein Twitch Name
-          YOUTUBE_CHANNEL_ID = "UC8P1j9TvPnzZ-0h_65VKrZQ"  # Ersetze mit deiner YouTube Channel ID
+          YOUTUBE_CHANNEL_ID = "UCuZR93eRLuEQ7-DVKfBTsEQ"  # Deine YouTube Channel ID
 
           # YouTube API initialisieren
           youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
 
-          # Neue Shorts fetchen
-          request = youtube.search().list(
-              part='snippet',
-              forChannelId="UCuZR93eRLuEQ7-DVKfBTsEQ",
-              maxResults=10,
-              order='date',
-              type='video',
-              videoDuration='short'  # Nur Shorts
+          # Schritt 1: Channel Info abrufen um die Uploads Playlist zu bekommen
+          channel_request = youtube.channels().list(
+              part='contentDetails',
+              id=YOUTUBE_CHANNEL_ID
           )
+          channel_response = channel_request.execute()
 
-          response = request.execute()
+          if not channel_response.get('items'):
+              print(f"❌ Channel {YOUTUBE_CHANNEL_ID} nicht gefunden!")
+              exit(1)
+
+          # Uploads Playlist ID abrufen
+          uploads_playlist_id = channel_response['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+          print(f"📺 Uploads Playlist gefunden: {uploads_playlist_id}")
+
+          # Schritt 2: Videos aus der Uploads Playlist abrufen
+          playlist_request = youtube.playlistItems().list(
+              part='snippet',
+              playlistId=uploads_playlist_id,
+              maxResults=20,
+              order='date'
+          )
+          playlist_response = playlist_request.execute()
 
           # clips.json laden
           try:
@@ -62,30 +73,35 @@ jobs:
           for clip in data['clips']:
               # Video ID aus URL extrahieren
               if 'watch?v=' in clip['url']:
-                  vid_id = clip['url'].split('watch?v=')[1]
+                  vid_id = clip['url'].split('watch?v=')[1].split('&')[0]
                   existing_ids.add(vid_id)
 
           # Neue Videos hinzufügen
           new_clips_added = 0
-          for item in response.get('items', []):
-              video_id = item['id']['videoId']
+          for item in playlist_response.get('items', []):
+              video_id = item['snippet']['resourceId']['videoId']
 
               # Skip wenn bereits vorhanden
               if video_id in existing_ids:
                   continue
 
-              # Video-Details abrufen
+              # Video-Details abrufen (um Länge und weitere Infos zu prüfen)
               video_request = youtube.videos().list(
-                  part='snippet,statistics',
+                  part='snippet,contentDetails,statistics',
                   id=video_id
               )
               video_response = video_request.execute()
+
+              if not video_response.get('items'):
+                  continue
+
               video_data = video_response['items'][0]
 
               # Neuen Clip erstellen
+              description = video_data['snippet'].get('description', '')
               new_clip = {
                   "title": video_data['snippet']['title'],
-                  "description": video_data['snippet']['description'][:100],  # Kurze Version
+                  "description": description[:100] if description else "Kein Text verfügbar",
                   "url": f"https://www.youtube.com/watch?v={video_id}",
                   "thumbnail": f"https://img.youtube.com/vi/{video_id}/maxresdefault.jpg",
                   "source": "YouTube",
