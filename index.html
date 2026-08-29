@@ -263,6 +263,30 @@
             align-items: center;
             justify-content: center;
             font-size: 4rem;
+            overflow: hidden;
+            border: 2px solid rgba(200, 162, 75, 0.5);
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 18%;
+        }
+
+        .profile-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            color: var(--hextech-blue-light);
+            background: rgba(44, 92, 143, 0.15);
+            border: 1px solid rgba(44, 92, 143, 0.4);
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 0.03em;
         }
 
         .profile-name {
@@ -713,9 +737,12 @@
 
         <div class="hero-image">
             <div class="profile-card">
-                <div class="profile-avatar">⚔️</div>
+                <div class="profile-avatar">
+                    <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ashe_0.jpg" alt="">
+                </div>
                 <div class="profile-name">palkoli</div>
-                <div class="profile-desc">Master Tier Jungler<br>League of Legends</div>
+                <div class="profile-desc">Bot Lane · ADC Main<br>League of Legends</div>
+                <div class="profile-main">🏹 Main: Ashe</div>
                 <div class="stream-status" style="background: rgba(44, 92, 143, 0.1); border-color: var(--hextech-blue); margin: 0;">
                     <div style="font-size: 0.9rem; color: var(--ash);">Folge mir für Live-Benachrichtigungen!</div>
                 </div>
