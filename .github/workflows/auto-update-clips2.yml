@@ -1,0 +1,132 @@
+name: Auto-Update YouTube Shorts to Clips
+
+on:
+  schedule:
+    - cron: '0 12 * * *'  # Täglich um 12 Uhr UTC
+  workflow_dispatch:  # Manuell triggern
+
+jobs:
+  update-clips:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+      - name: Fetch YouTube Shorts and Update clips.json
+        run: |
+          python3 << 'EOF'
+          import json
+          import os
+          from datetime import datetime
+          from googleapiclient.discovery import build
+
+          # API Schlüssel und Channel Info
+          YOUTUBE_API_KEY = "${{ secrets.YOUTUBE_API_KEY }}"
+          YOUTUBE_CHANNEL_ID = "UCuZR93eRLuEQ7-DVKfBTsEQ"  # Deine YouTube Channel ID
+
+          # YouTube API initialisieren
+          youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
+
+          # Schritt 1: Channel Info abrufen um die Uploads Playlist zu bekommen
+          channel_request = youtube.channels().list(
+              part='contentDetails',
+              id=YOUTUBE_CHANNEL_ID
+          )
+          channel_response = channel_request.execute()
+
+          if not channel_response.get('items'):
+              print(f"❌ Channel {YOUTUBE_CHANNEL_ID} nicht gefunden!")
+              exit(1)
+
+          # Uploads Playlist ID abrufen
+          uploads_playlist_id = channel_response['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+          print(f"📺 Uploads Playlist gefunden: {uploads_playlist_id}")
+
+          # Schritt 2: Videos aus der Uploads Playlist abrufen
+          playlist_request = youtube.playlistItems().list(
+              part='snippet',
+              playlistId=uploads_playlist_id,
+              maxResults=20,
+              order='date'
+          )
+          playlist_response = playlist_request.execute()
+
+          # clips.json laden
+          try:
+              with open('clips.json', 'r') as f:
+                  data = json.load(f)
+          except:
+              data = {"clips": []}
+
+          # Bestehende Video-IDs sammeln (um Duplikate zu vermeiden)
+          existing_ids = set()
+          for clip in data['clips']:
+              # Video ID aus URL extrahieren
+              if 'watch?v=' in clip['url']:
+                  vid_id = clip['url'].split('watch?v=')[1].split('&')[0]
+                  existing_ids.add(vid_id)
+
+          # Neue Videos hinzufügen
+          new_clips_added = 0
+          for item in playlist_response.get('items', []):
+              video_id = item['snippet']['resourceId']['videoId']
+
+              # Skip wenn bereits vorhanden
+              if video_id in existing_ids:
+                  continue
+
+              # Video-Details abrufen (um Länge und weitere Infos zu prüfen)
+              video_request = youtube.videos().list(
+                  part='snippet,contentDetails,statistics',
+                  id=video_id
+              )
+              video_response = video_request.execute()
+
+              if not video_response.get('items'):
+                  continue
+
+              video_data = video_response['items'][0]
+
+              # Neuen Clip erstellen
+              description = video_data['snippet'].get('description', '')
+              new_clip = {
+                  "title": video_data['snippet']['title'],
+                  "description": description[:100] if description else "Kein Text verfügbar",
+                  "url": f"https://www.youtube.com/watch?v={video_id}",
+                  "thumbnail": f"https://img.youtube.com/vi/{video_id}/maxresdefault.jpg",
+                  "source": "YouTube",
+                  "date": video_data['snippet']['publishedAt'][:10]
+              }
+
+              # Am Anfang der Liste hinzufügen (neueste zuerst)
+              data['clips'].insert(0, new_clip)
+              new_clips_added += 1
+
+          # clips.json speichern (max 20 Clips)
+          data['clips'] = data['clips'][:20]
+
+          with open('clips.json', 'w') as f:
+              json.dump(data, f, indent=2, ensure_ascii=False)
+
+          print(f"✅ {new_clips_added} neue Clips hinzugefügt!")
+
+          EOF
+
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add clips.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🎬 Auto-update: YouTube Shorts added" && git push)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
