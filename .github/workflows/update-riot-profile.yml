@@ -201,6 +201,72 @@ jobs:
               print(f"⚠️  Spectator-Abfrage fehlgeschlagen: {e}")
 
           profile["liveGame"] = live_game
+
+          # Schritt 7: Season Challenges (lol-challenges-v1) - Gesamt-Level +
+          # die 3 beeindruckendsten einzelnen Challenge-Erfolge der Season.
+          # Komplett optional/defensiv: falls der Endpoint fuer den Key nicht
+          # freigegeben ist, bleibt "challenges" einfach None und die Website
+          # blendet den Bereich aus.
+          LEVEL_RANK = {
+              "NONE": 0, "IRON": 1, "BRONZE": 2, "SILVER": 3, "GOLD": 4,
+              "PLATINUM": 5, "EMERALD": 6, "DIAMOND": 7, "MASTER": 8,
+              "GRANDMASTER": 9, "CHALLENGER": 10,
+          }
+
+          challenges_summary = None
+          try:
+              config_url = f"https://{PLATFORM}.api.riotgames.com/lol/challenges/v1/challenges/config"
+              challenge_config = riot_get(config_url)
+              challenge_names = {
+                  c["id"]: c.get("localizedNames", {}).get("en_US", {}).get("name", f"Challenge #{c['id']}")
+                  for c in challenge_config
+              }
+
+              player_data_url = f"https://{PLATFORM}.api.riotgames.com/lol/challenges/v1/player-data/{puuid}"
+              player_challenges = riot_get(player_data_url)
+
+              total_points = player_challenges.get("totalPoints", {})
+              total_level = total_points.get("level", "NONE").capitalize()
+              total_percentile = total_points.get("percentile")
+              percentile_text = (
+                  f"Top {round(total_percentile * 100)}%" if total_percentile is not None else None
+              )
+
+              # Nur echte Erfolge (Level > NONE, Wert > 0), sortiert nach
+              # hoechstem Level und (bei Gleichstand) bestem Perzentil
+              achieved = [
+                  c for c in player_challenges.get("challenges", [])
+                  if c.get("level") and c["level"] != "NONE" and c.get("value", 0) > 0
+              ]
+              achieved.sort(
+                  key=lambda c: (
+                      LEVEL_RANK.get(c.get("level", "NONE"), 0),
+                      -(c.get("percentile", 1) or 1),
+                  ),
+                  reverse=True
+              )
+
+              highlights = [
+                  {
+                      "name": challenge_names.get(c["challengeId"], f"Challenge #{c['challengeId']}"),
+                      "level": c["level"].capitalize(),
+                      "value": c.get("value"),
+                  }
+                  for c in achieved[:3]
+              ]
+
+              challenges_summary = {
+                  "totalLevel": total_level,
+                  "totalPoints": total_points.get("current", 0),
+                  "percentile": percentile_text,
+                  "highlights": highlights,
+              }
+          except requests.exceptions.HTTPError as e:
+              print(f"⚠️  Season Challenges konnten nicht geladen werden: {e}")
+          except Exception as e:
+              print(f"⚠️  Unerwarteter Fehler bei Season Challenges: {e}")
+
+          profile["challenges"] = challenges_summary
           profile["lastUpdate"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
           with open("profile.json", "w") as f:
@@ -210,8 +276,10 @@ jobs:
           print(f"   Siege: {profile['wins']} | Niederlagen: {profile['losses']} | Form: {recent_form}")
           print(f"   Top Champions: {[c['name'] for c in top_champions]}")
           print(f"   Live-Match: {live_game['inGame']}")
+          if challenges_summary:
+              print(f"   Challenges: {challenges_summary['totalLevel']} · {[h['name'] for h in challenges_summary['highlights']]}")
 
-          # Schritt 7: Rang-Verlauf fortschreiben (nur bei tatsaechlicher Aenderung,
+          # Schritt 8: Rang-Verlauf fortschreiben (nur bei tatsaechlicher Aenderung,
           # damit der Verlauf nicht mit identischen Punkten vollgeschrieben wird)
           MAX_HISTORY_ENTRIES = 200
 
