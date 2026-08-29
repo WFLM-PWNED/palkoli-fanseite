@@ -10,7 +10,7 @@ Professionelle League of Legends Streamer Fanseite mit Live-Status und Highlight
 
 ## 🌐 Live ansehen
 
-👉 **[palkoli.github.io/palkoli-fanseite](https://palkoli.github.io/palkoli-fanseite/)**
+👉 **[https://wflm-pwned.github.io/palkoli-fanseite/](https://wflm-pwned.github.io/palkoli-fanseite/)**
 
 ---
 
