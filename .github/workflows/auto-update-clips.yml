@@ -56,8 +56,7 @@ jobs:
           playlist_request = youtube.playlistItems().list(
               part='snippet',
               playlistId=uploads_playlist_id,
-              maxResults=20,
-              order='date'
+              maxResults=20
           )
           playlist_response = playlist_request.execute()
 
