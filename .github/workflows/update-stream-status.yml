@@ -1,0 +1,100 @@
+name: Update Stream Status
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Alle 5 Minuten
+  workflow_dispatch:  # Manuell triggern
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Check Twitch Stream
+        run: |
+          python3 << 'PYTHON_SCRIPT'
+          import json
+          import urllib.request
+          import urllib.parse
+          from datetime import datetime, timezone
+
+          # Step 1: Hole Access Token
+          client_id = "${{ secrets.TWITCH_CLIENT_ID }}"
+          client_secret = "${{ secrets.TWITCH_CLIENT_SECRET }}"
+          
+          auth_data = urllib.parse.urlencode({
+              "client_id": client_id,
+              "client_secret": client_secret,
+              "grant_type": "client_credentials"
+          }).encode('utf-8')
+          
+          try:
+              token_req = urllib.request.Request(
+                  "https://id.twitch.tv/oauth2/token",
+                  data=auth_data
+              )
+              token_res = urllib.request.urlopen(token_req, timeout=10)
+              token_data = json.loads(token_res.read())
+              access_token = token_data['access_token']
+          except Exception as e:
+              print(f"Token Error: {e}")
+              exit(1)
+
+          # Step 2: Checke Stream Status
+          headers = {
+              "Client-ID": client_id,
+              "Authorization": f"Bearer {access_token}"
+          }
+          
+          try:
+              stream_req = urllib.request.Request(
+                  "https://api.twitch.tv/helix/streams?user_login=palkoli",
+                  headers=headers
+              )
+              stream_res = urllib.request.urlopen(stream_req, timeout=10)
+              stream_data = json.loads(stream_res.read())
+              streams = stream_data.get('data', [])
+          except Exception as e:
+              print(f"Stream Check Error: {e}")
+              exit(1)
+
+          # Step 3: Schreibe status.json
+          if streams:
+              stream = streams[0]
+              started_at = datetime.fromisoformat(stream['started_at'].replace('Z', '+00:00'))
+              uptime = datetime.now(timezone.utc) - started_at
+              hours = int(uptime.total_seconds() // 3600)
+              mins = int((uptime.total_seconds() % 3600) // 60)
+
+              status = {
+                  "live": True,
+                  "title": stream.get('title', 'League of Legends'),
+                  "game": stream.get('game_name', 'League of Legends'),
+                  "viewers": stream.get('viewer_count', 0),
+                  "uptime": f"{hours} Std {mins} Min" if hours > 0 or mins > 0 else "gerade gestartet",
+                  "lastUpdate": datetime.now(timezone.utc).isoformat() + "Z"
+              }
+              print("🔴 LIVE!")
+          else:
+              status = {
+                  "live": False,
+                  "title": "Stream offline",
+                  "game": "League of Legends",
+                  "viewers": 0,
+                  "uptime": "",
+                  "lastUpdate": datetime.now(timezone.utc).isoformat() + "Z"
+              }
+              print("⚫ OFFLINE")
+
+          with open('status.json', 'w') as f:
+              json.dump(status, f, indent=2, ensure_ascii=False)
+          PYTHON_SCRIPT
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add status.json
+          git commit -m "🔄 Auto-update: Stream status [skip ci]" --allow-empty
+          git push
