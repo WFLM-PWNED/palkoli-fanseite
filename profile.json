@@ -11,5 +11,50 @@
     "L",
     "W"
   ],
-  "lastUpdate": "2026-08-29 17:05 UTC"
+  "topChampions": [
+    {
+      "name": "Teemo",
+      "image": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Teemo.png",
+      "level": 62,
+      "points": 655970
+    },
+    {
+      "name": "Ashe",
+      "image": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Ashe.png",
+      "level": 51,
+      "points": 536845
+    },
+    {
+      "name": "Thresh",
+      "image": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Thresh.png",
+      "level": 28,
+      "points": 278143
+    }
+  ],
+  "liveGame": {
+    "inGame": false
+  },
+  "challenges": {
+    "totalLevel": "Diamond",
+    "totalPoints": 17605,
+    "percentile": "Top 3%",
+    "highlights": [
+      {
+        "name": "Global Defense System",
+        "level": "Challenger",
+        "value": 764.0
+      },
+      {
+        "name": "Gets The Wurm",
+        "level": "Challenger",
+        "value": 287.0
+      },
+      {
+        "name": "Level 1 Fiesta",
+        "level": "Challenger",
+        "value": 479.0
+      }
+    ]
+  },
+  "lastUpdate": "2026-08-29 17:30 UTC"
 }
