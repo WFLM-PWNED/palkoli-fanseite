@@ -1,11 +1,11 @@
 {
   "tier": "Emerald",
   "rank": "4",
-  "leaguePoints": 71,
+  "leaguePoints": 50,
   "wins": 201,
-  "losses": 212,
+  "losses": 213,
   "recentForm": [
-    "W",
+    "L",
     "L",
     "L",
     "L",
@@ -33,9 +33,9 @@
   ],
   "liveGame": {
     "inGame": true,
-    "gameMode": "CLASSIC",
-    "gameLengthMinutes": 5,
-    "championName": "Teemo"
+    "gameMode": "KIWI",
+    "gameLengthMinutes": 16,
+    "championName": "Smolder"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -59,5 +59,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-08-30 13:36 UTC"
+  "lastUpdate": "2026-08-30 14:06 UTC"
 }
