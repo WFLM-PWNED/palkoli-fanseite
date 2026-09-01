@@ -593,6 +593,173 @@
             font-size: 0.7rem;
             color: var(--ash);
         }
+        /* ========== MATCH-HISTORIE SECTION ========== */
+        .matches-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+        }
+        .match-card {
+            background: rgba(20, 26, 38, 0.55);
+            border: 1px solid rgba(200, 162, 75, 0.2);
+            border-left: 4px solid var(--ash);
+            border-radius: 8px;
+            padding: 1.3rem 1.6rem;
+        }
+        .match-card.win { border-left-color: var(--success-green); }
+        .match-card.loss { border-left-color: var(--danger-red); }
+        .match-top {
+            display: flex;
+            align-items: center;
+            gap: 1.3rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .match-champ-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 8px;
+            border: 2px solid var(--rune-gold);
+            flex-shrink: 0;
+        }
+        .match-result-col {
+            min-width: 150px;
+        }
+        .match-result {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--ash);
+        }
+        .match-card.win .match-result { color: var(--success-green); }
+        .match-card.loss .match-result { color: var(--danger-red); }
+        .match-meta {
+            font-size: 0.75rem;
+            color: var(--ash);
+            margin-top: 0.25rem;
+        }
+        .match-kda {
+            text-align: center;
+            min-width: 90px;
+        }
+        .kda-line {
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .kda-line .kda-k { color: var(--success-green); }
+        .kda-line .kda-d { color: var(--danger-red); }
+        .kda-line .kda-a { color: var(--parchment); }
+        .kda-ratio {
+            font-size: 0.68rem;
+            color: var(--ash);
+            margin-top: 0.2rem;
+        }
+        .match-stats {
+            display: flex;
+            gap: 1.1rem;
+            flex-wrap: wrap;
+        }
+        .mstat {
+            text-align: center;
+            min-width: 54px;
+        }
+        .mstat span {
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--parchment);
+        }
+        .mstat label {
+            font-size: 0.62rem;
+            color: var(--ash);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .match-items {
+            display: flex;
+            gap: 3px;
+            margin-left: auto;
+        }
+        .match-items img {
+            width: 26px;
+            height: 26px;
+            border-radius: 4px;
+            border: 1px solid rgba(200, 162, 75, 0.3);
+        }
+        .match-team-compare {
+            margin: 0.9rem 0;
+            padding-top: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .team-bar-row {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+        .team-bar-row .mine { color: var(--hextech-blue-light); }
+        .team-bar-row .theirs { color: #E88A93; }
+        .team-bar {
+            flex: 1;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(140, 47, 58, 0.4);
+            overflow: hidden;
+        }
+        .team-bar .fill {
+            height: 100%;
+            background: rgba(44, 92, 143, 0.85);
+            transition: width 0.4s ease;
+        }
+        .team-gold-row {
+            font-size: 0.72rem;
+            color: var(--ash);
+            margin-top: 0.4rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-variant-numeric: tabular-nums;
+        }
+        .match-objectives {
+            display: flex;
+            gap: 1.6rem;
+            flex-wrap: wrap;
+        }
+        .obj-col {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .obj-team-label {
+            font-size: 0.65rem;
+            color: var(--ash);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-right: 0.2rem;
+            white-space: nowrap;
+        }
+        .obj-badge {
+            font-size: 0.78rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(200, 162, 75, 0.15);
+            border-radius: 20px;
+            padding: 0.2rem 0.65rem;
+            color: var(--parchment);
+            white-space: nowrap;
+        }
+        .obj-badge.first {
+            color: var(--rune-gold);
+            border-color: var(--rune-gold);
+            font-weight: 600;
+        }
         /* ========== TOOLS / POROFESSOR SECTION ========== */
         .tool-panel {
             display: flex;
@@ -834,6 +1001,17 @@
             .tool-benefits li {
                 text-align: left;
             }
+            .match-top {
+                justify-content: center;
+                text-align: center;
+            }
+            .match-items {
+                margin-left: 0;
+                justify-content: center;
+            }
+            .match-objectives {
+                justify-content: center;
+            }
             .clips-grid {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
                 gap: 1rem;
@@ -859,6 +1037,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#profile">Profil</a></li>
+                <li><a href="#matches">Matches</a></li>
                 <li><a href="#clips">Clips</a></li>
                 <li><a href="#tools">Tools</a></li>
                 <li><a href="#socials">Socials</a></li>
@@ -913,6 +1092,18 @@
         <div class="mastery-row" id="masteryRow"></div>
         <div class="profile-panel history-panel" id="historyPanel" style="margin-top: 1.2rem;" hidden></div>
         <div class="panel-box" id="challengesPanel" hidden></div>
+    </section>
+    <!-- MATCH-HISTORIE SECTION -->
+    <section class="section" id="matches">
+        <div class="section-header">
+            <div>
+                <h2 class="section-title">⚔️ Letzte Spiele</h2>
+                <p class="section-subtitle">Die letzten 5 Ranked-Partien im Detail: KDA, Team-Vergleich & Objectives</p>
+            </div>
+        </div>
+        <div class="matches-list" id="matchesList">
+            <div class="profile-placeholder">Match-Daten werden geladen…</div>
+        </div>
     </section>
     <!-- TOOLS / POROFESSOR SECTION -->
     <section class="section" id="tools">
@@ -1100,6 +1291,97 @@
             renderMastery(data.topChampions);
             renderLiveMatch(data.liveGame);
             renderChallenges(data.challenges);
+            renderMatches(data.matches);
+        }
+        // ===== MATCH-HISTORIE =====
+        const OBJ_ICONS = { dragon: '🐉', baron: '👑', riftHerald: '⚡', tower: '🏯', inhibitor: '💥' };
+        function formatK(n) {
+            n = Number(n) || 0;
+            return n >= 1000 ? (n / 1000).toFixed(1) + 'k' : String(n);
+        }
+        function formatDuration(sec) {
+            sec = Number(sec) || 0;
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60).toString().padStart(2, '0');
+            return `${m}:${s}`;
+        }
+        function formatRelativeTime(ms) {
+            if (!ms) return '';
+            const diffMin = Math.max(0, Math.floor((Date.now() - ms) / 60000));
+            if (diffMin < 60) return `vor ${diffMin} Min.`;
+            const diffH = Math.floor(diffMin / 60);
+            if (diffH < 24) return `vor ${diffH} Std.`;
+            return `vor ${Math.floor(diffH / 24)} Tg.`;
+        }
+        function renderObjectiveBadges(objectives) {
+            if (!objectives) return '';
+            const badges = Object.keys(OBJ_ICONS).map(key => {
+                const o = objectives[key];
+                if (!o || o.kills <= 0) return '';
+                return `<span class="obj-badge">${OBJ_ICONS[key]} ${o.kills}</span>`;
+            }).filter(Boolean);
+            if (objectives.firstBlood) badges.push('<span class="obj-badge first">⚔️ Erster Blutkill</span>');
+            if (objectives.tower && objectives.tower.first) badges.push('<span class="obj-badge first">🚩 Erster Turm</span>');
+            return badges.join('') || '<span class="obj-badge">–</span>';
+        }
+        function renderMatchCard(m) {
+            const resultClass = m.win ? 'win' : 'loss';
+            const resultText = m.win ? 'SIEG' : 'NIEDERLAGE';
+            const kdaRatio = m.deaths > 0 ? (((m.kills || 0) + (m.assists || 0)) / m.deaths).toFixed(2) : 'Perfect';
+            const itemsHtml = (m.items || []).map(src => `<img src="${src}" alt="" onerror="this.remove()">`).join('');
+            const teamKills = m.team?.kills ?? 0;
+            const enemyKills = m.enemyTeam?.kills ?? 0;
+            const totalKills = teamKills + enemyKills;
+            const fillPct = totalKills > 0 ? (teamKills / totalKills) * 100 : 50;
+            return `
+                <div class="match-card ${resultClass}">
+                    <div class="match-top">
+                        <img class="match-champ-icon" src="${m.championImage || ''}" alt="${escapeHtml(m.champion)}" onerror="this.style.visibility='hidden'">
+                        <div class="match-result-col">
+                            <div class="match-result">${resultText}</div>
+                            <div class="match-meta">${escapeHtml(m.queueName || '')} · ${formatDuration(m.gameDurationSeconds)} · ${formatRelativeTime(m.gameCreation)}</div>
+                        </div>
+                        <div class="match-kda">
+                            <div class="kda-line"><span class="kda-k">${m.kills ?? 0}</span>/<span class="kda-d">${m.deaths ?? 0}</span>/<span class="kda-a">${m.assists ?? 0}</span></div>
+                            <div class="kda-ratio">${kdaRatio} KDA</div>
+                        </div>
+                        <div class="match-stats">
+                            <div class="mstat"><span>${m.cs ?? '–'}</span><label>CS</label></div>
+                            <div class="mstat"><span>${formatK(m.goldEarned)}</span><label>Gold</label></div>
+                            <div class="mstat"><span>${formatK(m.damageDealt)}</span><label>Schaden</label></div>
+                            <div class="mstat"><span>${m.visionScore ?? '–'}</span><label>Vision</label></div>
+                        </div>
+                        <div class="match-items">${itemsHtml}</div>
+                    </div>
+                    <div class="match-team-compare">
+                        <div class="team-bar-row">
+                            <span class="mine">${teamKills} Kills</span>
+                            <div class="team-bar"><div class="fill" style="width: ${fillPct}%;"></div></div>
+                            <span class="theirs">${enemyKills} Kills</span>
+                        </div>
+                        <div class="team-gold-row">${formatK(m.team?.gold)} Gold vs. ${formatK(m.enemyTeam?.gold)} Gold (Gegner)</div>
+                    </div>
+                    <div class="match-objectives">
+                        <div class="obj-col">
+                            <span class="obj-team-label">Dein Team</span>
+                            ${renderObjectiveBadges(m.team?.objectives)}
+                        </div>
+                        <div class="obj-col">
+                            <span class="obj-team-label">Gegner</span>
+                            ${renderObjectiveBadges(m.enemyTeam?.objectives)}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        function renderMatches(matches) {
+            const container = document.getElementById('matchesList');
+            if (!container) return;
+            if (!Array.isArray(matches) || matches.length === 0) {
+                container.innerHTML = '<div class="profile-placeholder">Noch keine Match-Daten vorhanden.</div>';
+                return;
+            }
+            container.innerHTML = matches.map(renderMatchCard).join('');
         }
         // ===== SEASON CHALLENGES =====
         function renderChallenges(challenges) {
