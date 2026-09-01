@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WFLM PWNED - LoL Streamer</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-
     <style>
         :root {
             --void-ink: #0B0E14;
@@ -21,23 +19,19 @@
             --danger-red: #E74C3C;
             --success-green: #27AE60;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         /* Garantiert, dass das hidden-Attribut IMMER greift, egal welche
            display-Regel eine Komponente weiter unten sonst noch setzt. */
         [hidden] {
             display: none !important;
         }
-
         html {
             scroll-behavior: smooth;
         }
-
         body {
             background:
                 radial-gradient(ellipse 900px 500px at 15% 0%, rgba(44, 92, 143, 0.14), transparent 60%),
@@ -49,11 +43,9 @@
             line-height: 1.6;
             min-height: 100vh;
         }
-
         h1, h2, h3 {
             text-wrap: balance;
         }
-
         /* ========== NAVBAR ========== */
         .navbar {
             background: rgba(11, 14, 20, 0.95);
@@ -64,7 +56,6 @@
             z-index: 100;
             backdrop-filter: blur(10px);
         }
-
         .navbar-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -72,7 +63,6 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             font-family: 'Oswald', sans-serif;
             font-size: 1.8rem;
@@ -84,7 +74,6 @@
             align-items: center;
             gap: 0.5rem;
         }
-
         .logo-badge {
             width: 12px;
             height: 12px;
@@ -92,24 +81,20 @@
             border-radius: 50%;
             animation: pulse 2s ease-in-out infinite;
         }
-
         @keyframes pulse {
             0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7); }
             50% { opacity: 0.8; box-shadow: 0 0 0 6px rgba(39, 174, 96, 0); }
         }
-
         .logo-badge.offline {
             background: var(--ash);
             animation: none;
             box-shadow: none;
         }
-
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
         }
-
         .nav-links a {
             color: var(--parchment);
             text-decoration: none;
@@ -118,12 +103,10 @@
             border-bottom: 2px solid transparent;
             padding-bottom: 0.2rem;
         }
-
         .nav-links a:hover {
             color: var(--gold-light);
             border-color: var(--gold-light);
         }
-
         /* ========== HERO SECTION ========== */
         .hero {
             max-width: 1200px;
@@ -134,7 +117,6 @@
             gap: 3rem;
             align-items: center;
         }
-
         .hero-content h1 {
             font-family: 'Oswald', sans-serif;
             font-size: 3.5rem;
@@ -146,13 +128,11 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
         .hero-content p {
             font-size: 1.1rem;
             color: var(--ash);
             margin-bottom: 2rem;
         }
-
         .stream-status {
             background: rgba(44, 92, 143, 0.15);
             border: 1px solid var(--hextech-blue);
@@ -160,12 +140,10 @@
             padding: 1.5rem;
             margin-bottom: 2rem;
         }
-
         .stream-status.live {
             background: rgba(39, 174, 96, 0.1);
             border-color: var(--success-green);
         }
-
         .status-badge {
             display: inline-block;
             padding: 0.5rem 1rem;
@@ -178,17 +156,14 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-
         .status-badge.live {
             background: var(--danger-red);
             animation: blink 1s ease-in-out infinite;
         }
-
         @keyframes blink {
             0%, 100% { opacity: 1; }
             50% { opacity: 0.7; }
         }
-
         .stream-title {
             font-family: 'Oswald', sans-serif;
             font-size: 1.4rem;
@@ -196,18 +171,15 @@
             margin-bottom: 0.5rem;
             color: var(--parchment);
         }
-
         .stream-game {
             color: var(--ash);
             font-size: 0.95rem;
         }
-
         .btn-group {
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
         }
-
         .btn {
             padding: 0.9rem 1.8rem;
             border: none;
@@ -224,33 +196,27 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-
         .btn-primary {
             background: linear-gradient(135deg, var(--rune-gold) 0%, var(--gold-light) 100%);
             color: var(--void-ink);
         }
-
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(200, 162, 75, 0.4);
         }
-
         .btn-secondary {
             background: rgba(60, 92, 143, 0.3);
             border: 1px solid var(--hextech-blue);
             color: var(--hextech-blue-light);
         }
-
         .btn-secondary:hover {
             background: rgba(60, 92, 143, 0.5);
             border-color: var(--gold-light);
             color: var(--gold-light);
         }
-
         .hero-image {
             text-align: center;
         }
-
         .profile-card {
             background: rgba(11, 14, 20, 0.8);
             border: 2px solid var(--rune-gold);
@@ -258,7 +224,6 @@
             padding: 2rem;
             text-align: center;
         }
-
         .profile-avatar {
             width: 200px;
             height: 200px;
@@ -272,14 +237,12 @@
             overflow: hidden;
             border: 2px solid rgba(200, 162, 75, 0.5);
         }
-
         .profile-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center 18%;
         }
-
         .profile-main {
             display: inline-flex;
             align-items: center;
@@ -294,7 +257,6 @@
             font-family: 'Oswald', sans-serif;
             letter-spacing: 0.03em;
         }
-
         .profile-name {
             font-family: 'Oswald', sans-serif;
             font-size: 1.8rem;
@@ -302,19 +264,16 @@
             color: var(--rune-gold);
             margin-bottom: 0.5rem;
         }
-
         .profile-desc {
             color: var(--ash);
             margin-bottom: 1.5rem;
         }
-
         /* ========== SHARED SECTION HEADER ========== */
         .section {
             max-width: 1200px;
             margin: 4rem auto 2rem;
             padding: 0 2rem;
         }
-
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -325,7 +284,6 @@
             padding-bottom: 0.8rem;
             border-bottom: 2px solid var(--rune-gold);
         }
-
         .section-title {
             font-family: 'Oswald', sans-serif;
             font-size: 2.2rem;
@@ -333,13 +291,11 @@
             letter-spacing: 0.02em;
             color: var(--parchment);
         }
-
         .section-subtitle {
             font-size: 0.95rem;
             color: var(--ash);
             margin-top: 0.3rem;
         }
-
         .section-link {
             font-family: 'Oswald', sans-serif;
             font-size: 0.85rem;
@@ -352,11 +308,9 @@
             padding-bottom: 0.9rem;
             transition: color 0.3s;
         }
-
         .section-link:hover {
             color: var(--gold-light);
         }
-
         /* ========== SUMMONER PROFILE SECTION ========== */
         .profile-panel {
             display: grid;
@@ -369,7 +323,6 @@
             border-radius: 8px;
             padding: 2rem 2.5rem;
         }
-
         .rank-crest {
             flex-shrink: 0;
             width: 100px;
@@ -385,7 +338,6 @@
             text-align: center;
             padding: 0.5rem;
         }
-
         .rank-crest .tier {
             font-family: 'Oswald', sans-serif;
             font-weight: 700;
@@ -394,7 +346,6 @@
             color: var(--rune-gold);
             text-transform: uppercase;
         }
-
         .rank-crest .lp {
             font-family: 'JetBrains Mono', monospace;
             font-variant-numeric: tabular-nums;
@@ -402,13 +353,11 @@
             color: var(--ash);
             margin-top: 3px;
         }
-
         .stat-row {
             display: flex;
             gap: 1.2rem;
             flex-wrap: wrap;
         }
-
         .stat-block {
             text-align: center;
             padding: 0.7rem 1.3rem;
@@ -416,7 +365,6 @@
             border-radius: 6px;
             min-width: 80px;
         }
-
         .stat-value {
             font-family: 'JetBrains Mono', monospace;
             font-variant-numeric: tabular-nums;
@@ -424,11 +372,9 @@
             font-size: 1.75rem;
             color: var(--parchment);
         }
-
         .stat-value.winrate {
             color: var(--rune-gold);
         }
-
         .stat-label {
             font-size: 0.68rem;
             color: var(--ash);
@@ -436,11 +382,9 @@
             letter-spacing: 0.08em;
             margin-top: 0.25rem;
         }
-
         .form-wrap {
             text-align: center;
         }
-
         .form-wrap .form-caption {
             font-size: 0.68rem;
             color: var(--ash);
@@ -448,13 +392,11 @@
             letter-spacing: 0.08em;
             margin-bottom: 0.6rem;
         }
-
         .form-pips {
             display: flex;
             gap: 0.4rem;
             justify-content: center;
         }
-
         .pip {
             width: 28px;
             height: 28px;
@@ -467,17 +409,14 @@
             font-size: 0.72rem;
             color: var(--parchment);
         }
-
         .pip.win { background: rgba(44, 92, 143, 0.55); border: 1px solid var(--hextech-blue); }
         .pip.loss { background: rgba(140, 47, 58, 0.55); border: 1px solid var(--noxus-crimson); }
-
         .profile-placeholder {
             grid-column: 1 / -1;
             text-align: center;
             color: var(--ash);
             padding: 1rem;
         }
-
         /* ---- Live Match Banner ---- */
         .live-match-banner {
             display: flex;
@@ -490,7 +429,6 @@
             margin-bottom: 1.2rem;
             font-size: 0.88rem;
         }
-
         .live-match-banner .dot {
             width: 9px;
             height: 9px;
@@ -499,7 +437,6 @@
             flex-shrink: 0;
             animation: pulse 2s ease-in-out infinite;
         }
-
         .live-match-banner .live-label {
             font-family: 'Oswald', sans-serif;
             font-weight: 600;
@@ -507,11 +444,9 @@
             text-transform: uppercase;
             color: var(--success-green);
         }
-
         .live-match-banner .live-detail {
             color: var(--parchment);
         }
-
         /* ---- Champion Mastery ---- */
         .mastery-row {
             display: flex;
@@ -519,7 +454,6 @@
             flex-wrap: wrap;
             margin-top: 1.5rem;
         }
-
         .mastery-card {
             display: flex;
             align-items: center;
@@ -531,7 +465,6 @@
             flex: 1;
             min-width: 190px;
         }
-
         .mastery-card img {
             width: 46px;
             height: 46px;
@@ -539,14 +472,12 @@
             border: 1.5px solid var(--rune-gold);
             flex-shrink: 0;
         }
-
         .mastery-name {
             font-family: 'Oswald', sans-serif;
             font-weight: 600;
             font-size: 0.88rem;
             color: var(--parchment);
         }
-
         .mastery-level {
             font-size: 0.68rem;
             color: var(--rune-gold);
@@ -555,7 +486,6 @@
             letter-spacing: 0.04em;
             margin-top: 0.15rem;
         }
-
         .mastery-points {
             font-family: 'JetBrains Mono', monospace;
             font-variant-numeric: tabular-nums;
@@ -563,7 +493,6 @@
             color: var(--ash);
             margin-top: 0.1rem;
         }
-
         /* ---- Rank History ---- */
         .history-panel {
             display: flex;
@@ -571,7 +500,6 @@
             gap: 1.3rem;
             flex-wrap: wrap;
         }
-
         .history-label {
             font-size: 0.68rem;
             color: var(--ash);
@@ -579,12 +507,10 @@
             letter-spacing: 0.08em;
             white-space: nowrap;
         }
-
         .history-sparkline-wrap {
             flex: 1;
             min-width: 180px;
         }
-
         .history-delta {
             font-family: 'JetBrains Mono', monospace;
             font-variant-numeric: tabular-nums;
@@ -594,11 +520,9 @@
             border-radius: 4px;
             white-space: nowrap;
         }
-
         .history-delta.positive { color: var(--success-green); background: rgba(39, 174, 96, 0.12); }
         .history-delta.negative { color: var(--danger-red); background: rgba(231, 76, 60, 0.12); }
         .history-delta.neutral { color: var(--ash); background: rgba(255, 255, 255, 0.04); }
-
         /* ---- Season Challenges ---- */
         .panel-box {
             background: rgba(20, 26, 38, 0.55);
@@ -608,7 +532,6 @@
             padding: 1.5rem 2rem;
             margin-top: 1.2rem;
         }
-
         .challenges-summary {
             display: flex;
             align-items: baseline;
@@ -616,7 +539,6 @@
             flex-wrap: wrap;
             margin-bottom: 1.2rem;
         }
-
         .challenges-summary .challenges-title {
             font-family: 'Oswald', sans-serif;
             font-size: 0.95rem;
@@ -625,27 +547,23 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-
         .challenges-summary .challenges-level {
             font-family: 'Oswald', sans-serif;
             font-size: 1.3rem;
             font-weight: 700;
             color: var(--rune-gold);
         }
-
         .challenges-summary .challenges-meta {
             font-family: 'JetBrains Mono', monospace;
             font-variant-numeric: tabular-nums;
             font-size: 0.8rem;
             color: var(--ash);
         }
-
         .challenge-badges {
             display: flex;
             gap: 0.8rem;
             flex-wrap: wrap;
         }
-
         .challenge-badge {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(200, 162, 75, 0.2);
@@ -653,33 +571,80 @@
             padding: 0.55rem 1rem;
             min-width: 150px;
         }
-
         .challenge-badge .badge-name {
             font-size: 0.8rem;
             color: var(--parchment);
             font-weight: 600;
         }
-
         .challenge-badge .badge-meta {
             display: flex;
             justify-content: space-between;
             margin-top: 0.3rem;
         }
-
         .challenge-badge .badge-level {
             font-size: 0.65rem;
             color: var(--rune-gold);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-
         .challenge-badge .badge-value {
             font-family: 'JetBrains Mono', monospace;
             font-variant-numeric: tabular-nums;
             font-size: 0.7rem;
             color: var(--ash);
         }
-
+        /* ========== TOOLS / POROFESSOR SECTION ========== */
+        .tool-panel {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .tool-panel .tool-copy {
+            flex: 1;
+            min-width: 260px;
+        }
+        .tool-copy p {
+            margin-bottom: 0.9rem;
+        }
+        .tool-copy .tool-highlight {
+            color: var(--rune-gold);
+            font-weight: 700;
+        }
+        .tool-benefits {
+            list-style: none;
+            margin: 0 0 1.2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
+        .tool-benefits li {
+            color: var(--ash);
+            padding-left: 1.4rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        .tool-benefits li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--rune-gold);
+        }
+        .tool-note {
+            font-size: 0.85rem;
+            color: var(--ash);
+        }
+        .tool-cta {
+            flex-shrink: 0;
+            text-align: center;
+        }
+        .tool-cta .tool-cta-caption {
+            font-size: 0.68rem;
+            color: var(--ash);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.8rem;
+        }
         /* ========== CLIPS SECTION ========== */
         .clips-grid {
             display: grid;
@@ -687,7 +652,6 @@
             gap: 1.5rem;
             margin-bottom: 1rem;
         }
-
         .clip-card {
             position: relative;
             aspect-ratio: 9 / 16;
@@ -698,13 +662,11 @@
             cursor: pointer;
             transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease, border-color 0.3s ease;
         }
-
         .clip-card:hover {
             transform: translateY(-6px) scale(1.02);
             box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
             border-color: var(--rune-gold);
         }
-
         .clip-thumbnail-img {
             position: absolute;
             inset: 0;
@@ -714,15 +676,12 @@
             opacity: 0;
             transition: opacity 0.4s ease, transform 0.5s ease;
         }
-
         .clip-thumbnail-img.loaded {
             opacity: 1;
         }
-
         .clip-card:hover .clip-thumbnail-img {
             transform: scale(1.08);
         }
-
         .clip-overlay {
             position: absolute;
             inset: 0;
@@ -732,7 +691,6 @@
             justify-content: flex-end;
             padding: 0.9rem;
         }
-
         .clip-play-btn {
             position: absolute;
             top: 50%;
@@ -750,19 +708,16 @@
             opacity: 0;
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
-
         .clip-play-btn svg {
             width: 18px;
             height: 18px;
             fill: var(--parchment);
             margin-left: 2px;
         }
-
         .clip-card:hover .clip-play-btn {
             opacity: 1;
             transform: translate(-50%, -50%) scale(1);
         }
-
         .clip-badge-source {
             position: absolute;
             top: 0.6rem;
@@ -778,10 +733,8 @@
             border: 1px solid rgba(237, 230, 214, 0.15);
             color: var(--parchment);
         }
-
         .clip-badge-source.youtube { color: #ff6b6b; }
         .clip-badge-source.twitch { color: #b394f5; }
-
         .clip-badge-new {
             position: absolute;
             top: 0.6rem;
@@ -794,7 +747,6 @@
             background: var(--rune-gold);
             color: var(--void-ink);
         }
-
         .clip-title {
             font-family: 'Oswald', sans-serif;
             font-weight: 600;
@@ -808,13 +760,11 @@
             overflow: hidden;
             text-shadow: 0 1px 4px rgba(0,0,0,0.6);
         }
-
         .clip-date {
             font-size: 0.68rem;
             color: var(--ash);
             font-family: 'JetBrains Mono', monospace;
         }
-
         .skeleton-card {
             aspect-ratio: 9 / 16;
             border-radius: 10px;
@@ -823,19 +773,16 @@
             background-size: 200% 100%;
             animation: shimmer 1.4s ease-in-out infinite;
         }
-
         @keyframes shimmer {
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
-
         .clips-empty {
             grid-column: 1 / -1;
             text-align: center;
             color: var(--ash);
             padding: 2rem;
         }
-
         /* ========== FOOTER ========== */
         .footer {
             background: rgba(11, 14, 20, 0.95);
@@ -845,7 +792,6 @@
             text-align: center;
             color: var(--ash);
         }
-
         .footer-links {
             display: flex;
             justify-content: center;
@@ -853,48 +799,46 @@
             margin-bottom: 1rem;
             flex-wrap: wrap;
         }
-
         .footer-links a {
             color: var(--hextech-blue-light);
             text-decoration: none;
             transition: color 0.3s;
         }
-
         .footer-links a:hover {
             color: var(--rune-gold);
         }
-
         /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
             }
-
             .hero-content h1 {
                 font-size: 2.5rem;
             }
-
             .nav-links {
                 gap: 1rem;
             }
-
             .section-title {
                 font-size: 1.8rem;
             }
-
             .profile-panel {
                 grid-template-columns: 1fr;
                 justify-items: center;
                 text-align: center;
                 gap: 1.5rem;
             }
-
+            .tool-panel {
+                flex-direction: column;
+                text-align: center;
+            }
+            .tool-benefits li {
+                text-align: left;
+            }
             .clips-grid {
                 grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
                 gap: 1rem;
             }
         }
-
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             .logo-badge, .status-badge.live, .clip-card, .clip-thumbnail-img,
@@ -916,23 +860,21 @@
             <ul class="nav-links">
                 <li><a href="#profile">Profil</a></li>
                 <li><a href="#clips">Clips</a></li>
+                <li><a href="#tools">Tools</a></li>
                 <li><a href="#socials">Socials</a></li>
             </ul>
         </div>
     </nav>
-
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
             <h1>League of Legends Streamer</h1>
             <p>Live auf Twitch & YouTube - Professionelles Gaming mit Style</p>
-
             <div class="stream-status" id="streamStatus">
                 <div class="status-badge" id="statusBadgeText">OFFLINE</div>
                 <div class="stream-title" id="streamTitle">Stream offline</div>
                 <div class="stream-game" id="streamGame">Komm bald vorbei!</div>
             </div>
-
             <div class="btn-group">
                 <a href="https://twitch.tv/palkoli" target="_blank" class="btn btn-primary">
                     → Auf Twitch schauen
@@ -942,7 +884,6 @@
                 </a>
             </div>
         </div>
-
         <div class="hero-image">
             <div class="profile-card">
                 <div class="profile-avatar">
@@ -957,7 +898,6 @@
             </div>
         </div>
     </section>
-
     <!-- SUMMONER PROFILE SECTION -->
     <section class="section" id="profile">
         <div class="section-header">
@@ -974,7 +914,33 @@
         <div class="profile-panel history-panel" id="historyPanel" style="margin-top: 1.2rem;" hidden></div>
         <div class="panel-box" id="challengesPanel" hidden></div>
     </section>
-
+    <!-- TOOLS / POROFESSOR SECTION -->
+    <section class="section" id="tools">
+        <div class="section-header">
+            <div>
+                <h2 class="section-title">🔍 Mein Scouting-Tool</h2>
+                <p class="section-subtitle">Die App, mit der ich meine Gegner analysiere</p>
+            </div>
+        </div>
+        <div class="panel-box tool-panel">
+            <div class="tool-copy">
+                <p><span class="tool-highlight">Porofessor</span> ist eine kostenlose Begleit-App, die ich selbst beim Streamen nutze. Sie blendet automatisch Zusatzinfos ein, ohne dass ich alt-tabben muss:</p>
+                <ul class="tool-benefits">
+                    <li>Ban- und Konterpick-Vorschläge direkt in der Champion-Auswahl, inkl. Ein-Klick-Import von Build, Runen und Zaubern</li>
+                    <li>Live-Overlay im Spiel: Gegner-Stats, Dschungel- und Hemmwerk-Timer, Stärken & Schwächen der Gegner auf einen Blick</li>
+                    <li>Detaillierte Postgame-Analyse mit Charts zu Farm, Fights, Vision und Objectives</li>
+                    <li>Meta-Tier-Listen und Pro-Replays zum Lernen</li>
+                </ul>
+                <p class="tool-note">Mit meinem Link siehst du beim Zuschauen automatisch dieselben Live-Infos, die ich im Stream nutze – kostenlos und Riot-Games-konform.</p>
+            </div>
+            <div class="tool-cta">
+                <div class="tool-cta-caption">Kostenlos &amp; in Sekunden startklar</div>
+                <a href="https://auth.porofessor.gg/register?referrer=019c7f0c-1d2e-7043-9a46-ad5eaf6ec7a7" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                    → Porofessor holen
+                </a>
+            </div>
+        </div>
+    </section>
     <!-- CLIPS SECTION -->
     <section class="section" id="clips">
         <div class="section-header">
@@ -986,7 +952,6 @@
         </div>
         <div class="clips-grid" id="clipsContainer"></div>
     </section>
-
     <!-- FOOTER -->
     <footer class="footer" id="socials">
         <div class="footer-links">
@@ -995,14 +960,12 @@
         </div>
         <p>&copy; 2026 WFLM PWNED | Powered by League of Legends</p>
     </footer>
-
     <script>
         function escapeHtml(str) {
             const div = document.createElement('div');
             div.textContent = str ?? '';
             return div.innerHTML;
         }
-
         // ===== CLIPS =====
         function renderClipSkeletons(count) {
             const container = document.getElementById('clipsContainer');
@@ -1010,7 +973,6 @@
                 .map(() => '<div class="skeleton-card"></div>')
                 .join('');
         }
-
         async function loadClips() {
             renderClipSkeletons(6);
             try {
@@ -1024,30 +986,24 @@
                     '<p class="clips-empty">Fehler beim Laden der Clips</p>';
             }
         }
-
         function isRecent(dateStr, days) {
             const date = new Date(dateStr);
             if (isNaN(date)) return false;
             return (Date.now() - date.getTime()) < days * 24 * 60 * 60 * 1000;
         }
-
         function renderClips(clips) {
             const container = document.getElementById('clipsContainer');
             container.innerHTML = '';
-
             if (!clips || clips.length === 0) {
                 container.innerHTML = '<p class="clips-empty">Noch keine Clips vorhanden</p>';
                 return;
             }
-
             clips.forEach(clip => {
                 const card = document.createElement('div');
                 card.className = 'clip-card';
                 card.onclick = () => window.open(clip.url, '_blank');
-
                 const sourceClass = (clip.source || '').toLowerCase();
                 const newBadge = isRecent(clip.date, 3) ? '<div class="clip-badge-new">NEU</div>' : '';
-
                 card.innerHTML = `
                     <img src="${clip.thumbnail}" alt="${escapeHtml(clip.title)}" class="clip-thumbnail-img"
                          loading="lazy" decoding="async"
@@ -1061,11 +1017,9 @@
                         <div class="clip-date">${escapeHtml(clip.date)}</div>
                     </div>
                 `;
-
                 container.appendChild(card);
             });
         }
-
         // ===== STREAM STATUS =====
         async function loadStreamStatus() {
             try {
@@ -1077,7 +1031,6 @@
                 console.error('Error loading status:', error);
             }
         }
-
         function updateStreamStatus(data) {
             const isLive = data.live === true;
             const statusBadge = document.getElementById('statusBadge');
@@ -1085,7 +1038,6 @@
             const streamStatus = document.getElementById('streamStatus');
             const streamTitle = document.getElementById('streamTitle');
             const streamGame = document.getElementById('streamGame');
-
             if (isLive) {
                 statusBadge.classList.remove('offline');
                 statusBadgeText.textContent = '🔴 LIVE';
@@ -1099,7 +1051,6 @@
                 statusBadgeText.className = 'status-badge';
             }
         }
-
         // ===== SUMMONER PROFILE =====
         async function loadProfileStats() {
             try {
@@ -1113,16 +1064,13 @@
                     '<div class="profile-placeholder">Profil-Daten folgen bald.</div>';
             }
         }
-
         function renderProfileStats(data) {
             const wins = Number(data.wins) || 0;
             const losses = Number(data.losses) || 0;
             const total = wins + losses;
             const winratePct = total > 0 ? Math.round((wins / total) * 100) : null;
             const form = Array.isArray(data.recentForm) ? data.recentForm : [];
-
             const lpText = data.leaguePoints != null ? `· ${data.leaguePoints} LP` : '';
-
             document.getElementById('profilePanel').innerHTML = `
                 <div class="rank-crest">
                     <div class="tier">${escapeHtml(data.tier) || '–'}</div>
@@ -1149,12 +1097,10 @@
                     </div>
                 </div>
             `;
-
             renderMastery(data.topChampions);
             renderLiveMatch(data.liveGame);
             renderChallenges(data.challenges);
         }
-
         // ===== SEASON CHALLENGES =====
         function renderChallenges(challenges) {
             const panel = document.getElementById('challengesPanel');
@@ -1163,7 +1109,6 @@
                 panel.innerHTML = '';
                 return;
             }
-
             const metaParts = [];
             if (challenges.totalPoints != null) {
                 metaParts.push(`${Number(challenges.totalPoints).toLocaleString('de-DE')} Punkte`);
@@ -1171,7 +1116,6 @@
             if (challenges.percentile) {
                 metaParts.push(challenges.percentile);
             }
-
             const badges = (challenges.highlights || []).map(h => `
                 <div class="challenge-badge">
                     <div class="badge-name">${escapeHtml(h.name)}</div>
@@ -1181,7 +1125,6 @@
                     </div>
                 </div>
             `).join('');
-
             panel.innerHTML = `
                 <div class="challenges-summary">
                     <span class="challenges-title">🏆 Season Highlights</span>
@@ -1192,7 +1135,6 @@
             `;
             panel.hidden = false;
         }
-
         // ===== CHAMPION MASTERY =====
         function renderMastery(topChampions) {
             const row = document.getElementById('masteryRow');
@@ -1200,7 +1142,6 @@
                 row.innerHTML = '';
                 return;
             }
-
             row.innerHTML = topChampions.map(champ => `
                 <div class="mastery-card">
                     <img src="${champ.image}" alt="${escapeHtml(champ.name)}" loading="lazy">
@@ -1212,7 +1153,6 @@
                 </div>
             `).join('');
         }
-
         // ===== LIVE MATCH =====
         function renderLiveMatch(liveGame) {
             const banner = document.getElementById('liveMatchBanner');
@@ -1221,10 +1161,8 @@
                 banner.innerHTML = '';
                 return;
             }
-
             const champText = liveGame.championName ? ` auf ${escapeHtml(liveGame.championName)}` : '';
             const timeText = liveGame.gameLengthMinutes != null ? ` · ${liveGame.gameLengthMinutes} Min.` : '';
-
             banner.innerHTML = `
                 <span class="dot"></span>
                 <span class="live-label">Aktuell im Spiel</span>
@@ -1232,7 +1170,6 @@
             `;
             banner.hidden = false;
         }
-
         // ===== RANK HISTORY =====
         async function loadRankHistory() {
             try {
@@ -1245,37 +1182,30 @@
                 document.getElementById('historyPanel').hidden = true;
             }
         }
-
         function renderRankHistory(history) {
             const panel = document.getElementById('historyPanel');
             if (!Array.isArray(history) || history.length < 2) {
                 panel.hidden = true;
                 return;
             }
-
             const points = history.map(h => Number(h.leaguePoints) || 0);
             const min = Math.min(...points);
             const max = Math.max(...points);
             const range = max - min || 1;
-
             const width = 300;
             const height = 40;
             const step = width / (points.length - 1);
-
             const coords = points.map((p, i) => {
                 const x = i * step;
                 const y = height - ((p - min) / range) * (height - 6) - 3;
                 return `${x.toFixed(1)},${y.toFixed(1)}`;
             });
-
             const linePath = 'M' + coords.join(' L');
             const areaPath = `${linePath} L${width},${height} L0,${height} Z`;
             const lastCoord = coords[coords.length - 1].split(',');
-
             const delta = points[points.length - 1] - points[0];
             const deltaClass = delta > 0 ? 'positive' : delta < 0 ? 'negative' : 'neutral';
             const deltaText = delta > 0 ? `+${delta} LP` : delta < 0 ? `${delta} LP` : '±0 LP';
-
             panel.innerHTML = `
                 <div class="history-label">LP-Verlauf</div>
                 <div class="history-sparkline-wrap">
@@ -1295,13 +1225,11 @@
             `;
             panel.hidden = false;
         }
-
         // Initialize
         loadClips();
         loadStreamStatus();
         loadProfileStats();
         loadRankHistory();
-
         // Refresh status every 60 seconds
         setInterval(loadStreamStatus, 60000);
     </script>
