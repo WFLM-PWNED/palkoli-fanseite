@@ -42,6 +42,19 @@ jobs:
 
           HEADERS = {"X-Riot-Token": RIOT_API_KEY}
           RANK_TO_NUMBER = {"I": "1", "II": "2", "III": "3", "IV": "4"}
+          QUEUE_NAMES = {
+              420: "Ranked Solo/Duo",
+              440: "Ranked Flex",
+              400: "Normal (Draft)",
+              430: "Normal (Blind)",
+              450: "ARAM",
+              700: "Clash",
+              900: "URF",
+              1700: "Arena",
+          }
+          # Reihenfolge, in der Objective-Badges angezeigt werden (Frontend nutzt
+          # dieselben Keys - bei Aenderung hier auch in index.html anpassen).
+          OBJECTIVE_KEYS = ("dragon", "baron", "riftHerald", "tower", "inhibitor")
 
           def riot_get(url, params=None):
               res = requests.get(url, headers=HEADERS, params=params, timeout=15)
@@ -94,42 +107,9 @@ jobs:
                   "losses": 0,
               }
 
-          # Schritt 3: Letzte Matches fuer die "Form"-Anzeige
-          matches_url = f"https://{REGION}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids"
-          match_ids = riot_get(matches_url, params={
-              "queue": RANKED_QUEUE_ID,
-              "start": 0,
-              "count": MATCH_COUNT
-          })
-
-          # Falls keine Ranked-Matches gefunden wurden, auf alle Spielmodi ausweichen
-          if not match_ids:
-              print("ℹ️  Keine Ranked-Matches gefunden, nutze allgemeine Match-History.")
-              match_ids = riot_get(matches_url, params={"start": 0, "count": MATCH_COUNT})
-
-          recent_form = []
-          for match_id in match_ids:
-              time.sleep(1.2)  # kleine Pause zwischen Requests
-              match_url = f"https://{REGION}.api.riotgames.com/lol/match/v5/matches/{match_id}"
-              try:
-                  match_data = riot_get(match_url)
-              except requests.exceptions.HTTPError as e:
-                  print(f"⚠️  Match {match_id} konnte nicht geladen werden: {e}")
-                  continue
-
-              participant = next(
-                  (p for p in match_data["info"]["participants"] if p["puuid"] == puuid),
-                  None
-              )
-              if participant:
-                  recent_form.append("W" if participant["win"] else "L")
-
-          # Aelteste zuerst, neuestes Spiel zuletzt anzeigen
-          recent_form.reverse()
-          profile["recentForm"] = recent_form
-
-          # Schritt 4: Data Dragon -> Champion-Namen & Bilder (kein API-Key noetig,
-          # oeffentliches CDN von Riot)
+          # Schritt 3: Data Dragon -> Champion-Namen & Bilder (kein API-Key noetig,
+          # oeffentliches CDN von Riot). Vorgezogen (frueher Schritt 4), weil der
+          # Match-Abruf unten Champion- und Item-Bild-URLs braucht.
           ddragon_versions = requests.get(
               "https://ddragon.leagueoflegends.com/api/versions.json", timeout=15
           ).json()
@@ -144,6 +124,123 @@ jobs:
               int(info["key"]): {"name": info["name"], "id": champ_id}
               for champ_id, info in champion_data.items()
           }
+
+          def champion_image_url(champion_id):
+              champ_info = champion_by_id.get(champion_id)
+              if not champ_info:
+                  return None
+              return f"https://ddragon.leagueoflegends.com/cdn/{ddragon_version}/img/champion/{champ_info['id']}.png"
+
+          # Schritt 4: Letzte Matches - sowohl die einfache "Form" (W/L-Pips) als
+          # auch die volle Detailkarte (KDA, CS, Gold, Schaden, Items,
+          # Team-Vergleich, Objectives) kommen aus derselben Match-V5-Antwort,
+          # also nur EIN Request pro Match noetig (kein zusaetzlicher API-Call).
+          matches_url = f"https://{REGION}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids"
+          match_ids = riot_get(matches_url, params={
+              "queue": RANKED_QUEUE_ID,
+              "start": 0,
+              "count": MATCH_COUNT
+          })
+
+          # Falls keine Ranked-Matches gefunden wurden, auf alle Spielmodi ausweichen
+          if not match_ids:
+              print("ℹ️  Keine Ranked-Matches gefunden, nutze allgemeine Match-History.")
+              match_ids = riot_get(matches_url, params={"start": 0, "count": MATCH_COUNT})
+
+          def objectives_summary(team):
+              """Extrahiert Kills+Erstes-Ereignis je Objective-Typ aus dem
+              teams[].objectives-Block von Match-V5. Liefert KEINEN Drachen-Typ
+              (Ocean/Infernal/...) - das steckt nur im separaten, deutlich
+              schwereren Timeline-Endpoint und wuerde einen zweiten Request pro
+              Match noetig machen. Fuer die Fansite reicht die Drachen-Anzahl."""
+              objectives = team.get("objectives", {}) if team else {}
+              summary = {
+                  key: {
+                      "kills": objectives.get(key, {}).get("kills", 0),
+                      "first": bool(objectives.get(key, {}).get("first", False)),
+                  }
+                  for key in OBJECTIVE_KEYS
+              }
+              champ_obj = objectives.get("champion", {})
+              summary["firstBlood"] = bool(champ_obj.get("first", False))
+              return summary
+
+          recent_form = []
+          matches = []
+          for match_id in match_ids:
+              time.sleep(1.2)  # kleine Pause zwischen Requests
+              match_url = f"https://{REGION}.api.riotgames.com/lol/match/v5/matches/{match_id}"
+              try:
+                  match_data = riot_get(match_url)
+              except requests.exceptions.HTTPError as e:
+                  print(f"⚠️  Match {match_id} konnte nicht geladen werden: {e}")
+                  continue
+
+              info = match_data.get("info", {})
+              participants = info.get("participants", [])
+              participant = next((p for p in participants if p["puuid"] == puuid), None)
+              if not participant:
+                  continue
+
+              recent_form.append("W" if participant["win"] else "L")
+
+              my_team_id = participant.get("teamId")
+              teams_by_id = {t.get("teamId"): t for t in info.get("teams", [])}
+              my_team = teams_by_id.get(my_team_id, {})
+              enemy_team = next(
+                  (t for tid, t in teams_by_id.items() if tid != my_team_id), {}
+              )
+
+              my_team_kills = sum(p.get("kills", 0) for p in participants if p.get("teamId") == my_team_id)
+              enemy_team_kills = sum(p.get("kills", 0) for p in participants if p.get("teamId") != my_team_id)
+              my_team_gold = sum(p.get("goldEarned", 0) for p in participants if p.get("teamId") == my_team_id)
+              enemy_team_gold = sum(p.get("goldEarned", 0) for p in participants if p.get("teamId") != my_team_id)
+
+              item_ids = [participant.get(f"item{i}", 0) for i in range(7)]
+              item_images = [
+                  f"https://ddragon.leagueoflegends.com/cdn/{ddragon_version}/img/item/{iid}.png"
+                  for iid in item_ids if iid
+              ]
+
+              queue_id = info.get("queueId")
+
+              matches.append({
+                  "matchId": match_id,
+                  "champion": champion_by_id.get(participant.get("championId"), {}).get(
+                      "name", participant.get("championName", "?")
+                  ),
+                  "championImage": champion_image_url(participant.get("championId")),
+                  "win": bool(participant.get("win")),
+                  "queueId": queue_id,
+                  "queueName": QUEUE_NAMES.get(queue_id, info.get("gameMode", "")),
+                  "gameDurationSeconds": info.get("gameDuration", 0),
+                  "gameCreation": info.get("gameCreation", 0),
+                  "kills": participant.get("kills", 0),
+                  "deaths": participant.get("deaths", 0),
+                  "assists": participant.get("assists", 0),
+                  "cs": participant.get("totalMinionsKilled", 0) + participant.get("neutralMinionsKilled", 0),
+                  "goldEarned": participant.get("goldEarned", 0),
+                  "damageDealt": participant.get("totalDamageDealtToChampions", 0),
+                  "visionScore": participant.get("visionScore", 0),
+                  "items": item_images,
+                  "team": {
+                      "kills": my_team_kills,
+                      "gold": my_team_gold,
+                      "objectives": objectives_summary(my_team),
+                  },
+                  "enemyTeam": {
+                      "kills": enemy_team_kills,
+                      "gold": enemy_team_gold,
+                      "objectives": objectives_summary(enemy_team),
+                  },
+              })
+
+          # Aelteste zuerst, neuestes Spiel zuletzt -> fuer die Form-Pips.
+          recent_form.reverse()
+          profile["recentForm"] = recent_form
+          # 'matches' bleibt in der Original-Reihenfolge der Riot-API (neuestes
+          # Spiel zuerst) - so wie man eine Matchhistorie normalerweise liest.
+          profile["matches"] = matches
 
           # Schritt 5: Top 3 Champion Mastery
           top_champions = []
@@ -274,6 +371,7 @@ jobs:
 
           print(f"✅ Profil aktualisiert: {profile['tier']} {profile['rank']} · {profile['leaguePoints']} LP")
           print(f"   Siege: {profile['wins']} | Niederlagen: {profile['losses']} | Form: {recent_form}")
+          print(f"   Matches mit Details geladen: {len(matches)}")
           print(f"   Top Champions: {[c['name'] for c in top_champions]}")
           print(f"   Live-Match: {live_game['inGame']}")
           if challenges_summary:
