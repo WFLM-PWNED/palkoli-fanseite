@@ -1,17 +1,97 @@
 {
   "tier": "Emerald",
   "rank": "4",
-  "leaguePoints": 24,
+  "leaguePoints": 3,
   "wins": 204,
-  "losses": 217,
+  "losses": 218,
   "recentForm": [
     "W",
-    "W",
+    "L",
     "L",
     "L",
     "L"
   ],
   "matches": [
+    {
+      "matchId": "EUW1_7970663627",
+      "champion": "Sivir",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Sivir.png",
+      "win": false,
+      "queueId": 420,
+      "queueName": "Ranked Solo/Duo",
+      "gameDurationSeconds": 1697,
+      "gameCreation": 1788355566471,
+      "kills": 4,
+      "deaths": 9,
+      "assists": 5,
+      "cs": 181,
+      "goldEarned": 12668,
+      "damageDealt": 12856,
+      "visionScore": 34,
+      "items": [
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3155.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/6675.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3032.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3814.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/1036.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/1036.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3340.png"
+      ],
+      "team": {
+        "kills": 22,
+        "gold": 58902,
+        "objectives": {
+          "dragon": {
+            "kills": 1,
+            "first": false
+          },
+          "baron": {
+            "kills": 0,
+            "first": false
+          },
+          "riftHerald": {
+            "kills": 0,
+            "first": false
+          },
+          "tower": {
+            "kills": 4,
+            "first": true
+          },
+          "inhibitor": {
+            "kills": 1,
+            "first": false
+          },
+          "firstBlood": true
+        }
+      },
+      "enemyTeam": {
+        "kills": 37,
+        "gold": 64916,
+        "objectives": {
+          "dragon": {
+            "kills": 2,
+            "first": true
+          },
+          "baron": {
+            "kills": 0,
+            "first": false
+          },
+          "riftHerald": {
+            "kills": 1,
+            "first": true
+          },
+          "tower": {
+            "kills": 10,
+            "first": false
+          },
+          "inhibitor": {
+            "kills": 2,
+            "first": true
+          },
+          "firstBlood": false
+        }
+      }
+    },
     {
       "matchId": "EUW1_7970498911",
       "champion": "Ashe",
@@ -330,85 +410,6 @@
           "firstBlood": false
         }
       }
-    },
-    {
-      "matchId": "EUW1_7970442643",
-      "champion": "Zilean",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Zilean.png",
-      "win": true,
-      "queueId": 420,
-      "queueName": "Ranked Solo/Duo",
-      "gameDurationSeconds": 835,
-      "gameCreation": 1788332775872,
-      "kills": 2,
-      "deaths": 0,
-      "assists": 4,
-      "cs": 37,
-      "goldEarned": 4475,
-      "damageDealt": 4074,
-      "visionScore": 21,
-      "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3867.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/1082.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/2031.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/4642.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3158.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3364.png"
-      ],
-      "team": {
-        "kills": 12,
-        "gold": 27715,
-        "objectives": {
-          "dragon": {
-            "kills": 1,
-            "first": true
-          },
-          "baron": {
-            "kills": 0,
-            "first": false
-          },
-          "riftHerald": {
-            "kills": 0,
-            "first": false
-          },
-          "tower": {
-            "kills": 1,
-            "first": true
-          },
-          "inhibitor": {
-            "kills": 0,
-            "first": false
-          },
-          "firstBlood": false
-        }
-      },
-      "enemyTeam": {
-        "kills": 4,
-        "gold": 23507,
-        "objectives": {
-          "dragon": {
-            "kills": 0,
-            "first": false
-          },
-          "baron": {
-            "kills": 0,
-            "first": false
-          },
-          "riftHerald": {
-            "kills": 0,
-            "first": false
-          },
-          "tower": {
-            "kills": 1,
-            "first": false
-          },
-          "inhibitor": {
-            "kills": 0,
-            "first": false
-          },
-          "firstBlood": true
-        }
-      }
     }
   ],
   "topChampions": [
@@ -432,10 +433,7 @@
     }
   ],
   "liveGame": {
-    "inGame": true,
-    "gameMode": "CLASSIC",
-    "gameLengthMinutes": 13,
-    "championName": "Sivir"
+    "inGame": false
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -445,7 +443,7 @@
       {
         "name": "Global Defense System",
         "level": "Challenger",
-        "value": 767.0
+        "value": 768.0
       },
       {
         "name": "Gets The Wurm",
@@ -459,5 +457,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-02 13:41 UTC"
+  "lastUpdate": "2026-09-02 14:12 UTC"
 }
