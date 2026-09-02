@@ -430,7 +430,10 @@
     }
   ],
   "liveGame": {
-    "inGame": false
+    "inGame": true,
+    "gameMode": "CLASSIC",
+    "gameLengthMinutes": 17,
+    "championName": "Veigar"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -454,5 +457,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-02 08:13 UTC"
+  "lastUpdate": "2026-09-02 08:41 UTC"
 }
