@@ -432,7 +432,10 @@
     }
   ],
   "liveGame": {
-    "inGame": false
+    "inGame": true,
+    "gameMode": "CLASSIC",
+    "gameLengthMinutes": 13,
+    "championName": "Sivir"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -456,5 +459,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-02 13:12 UTC"
+  "lastUpdate": "2026-09-02 13:41 UTC"
 }
