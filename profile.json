@@ -432,7 +432,10 @@
     }
   ],
   "liveGame": {
-    "inGame": false
+    "inGame": true,
+    "gameMode": "KIWI",
+    "gameLengthMinutes": 5,
+    "championName": "Malphite"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -456,5 +459,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-03 15:11 UTC"
+  "lastUpdate": "2026-09-03 15:40 UTC"
 }
