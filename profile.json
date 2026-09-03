@@ -432,21 +432,13 @@
     }
   ],
   "liveGame": {
-    "inGame": true,
-    "gameMode": "KIWI",
-    "gameLengthMinutes": 5,
-    "championName": "Malphite"
+    "inGame": false
   },
   "challenges": {
     "totalLevel": "Diamond",
     "totalPoints": 17605,
     "percentile": "Top 3%",
     "highlights": [
-      {
-        "name": "Gets The Wurm",
-        "level": "Challenger",
-        "value": 289.0
-      },
       {
         "name": "Level 1 Fiesta",
         "level": "Challenger",
@@ -456,8 +448,13 @@
         "name": "Global Defense System",
         "level": "Challenger",
         "value": 769.0
+      },
+      {
+        "name": "Gets The Wurm",
+        "level": "Challenger",
+        "value": 289.0
       }
     ]
   },
-  "lastUpdate": "2026-09-03 15:40 UTC"
+  "lastUpdate": "2026-09-03 16:12 UTC"
 }
