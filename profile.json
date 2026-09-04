@@ -434,7 +434,7 @@
   "liveGame": {
     "inGame": true,
     "gameMode": "CLASSIC",
-    "gameLengthMinutes": 0,
+    "gameLengthMinutes": 26,
     "championName": "Teemo"
   },
   "challenges": {
@@ -459,5 +459,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-04 20:11 UTC"
+  "lastUpdate": "2026-09-04 20:40 UTC"
 }
