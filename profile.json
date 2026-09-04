@@ -434,8 +434,8 @@
   "liveGame": {
     "inGame": true,
     "gameMode": "KIWI",
-    "gameLengthMinutes": 7,
-    "championName": "Syndra"
+    "gameLengthMinutes": 17,
+    "championName": "Illaoi"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -459,5 +459,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-04 21:10 UTC"
+  "lastUpdate": "2026-09-04 21:39 UTC"
 }
