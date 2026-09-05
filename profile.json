@@ -1,17 +1,96 @@
 {
   "tier": "Emerald",
   "rank": "4",
-  "leaguePoints": 61,
-  "wins": 208,
+  "leaguePoints": 81,
+  "wins": 209,
   "losses": 219,
   "recentForm": [
     "W",
-    "W",
     "L",
+    "W",
     "W",
     "W"
   ],
   "matches": [
+    {
+      "matchId": "EUW1_7974157555",
+      "champion": "Teemo",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Teemo.png",
+      "win": true,
+      "queueId": 420,
+      "queueName": "Ranked Solo/Duo",
+      "gameDurationSeconds": 1831,
+      "gameCreation": 1788628230041,
+      "kills": 3,
+      "deaths": 3,
+      "assists": 9,
+      "cs": 226,
+      "goldEarned": 12742,
+      "damageDealt": 29567,
+      "visionScore": 65,
+      "items": [
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/6653.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3041.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3020.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/4645.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3118.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3340.png"
+      ],
+      "team": {
+        "kills": 27,
+        "gold": 66860,
+        "objectives": {
+          "dragon": {
+            "kills": 4,
+            "first": false
+          },
+          "baron": {
+            "kills": 0,
+            "first": false
+          },
+          "riftHerald": {
+            "kills": 1,
+            "first": true
+          },
+          "tower": {
+            "kills": 11,
+            "first": false
+          },
+          "inhibitor": {
+            "kills": 2,
+            "first": true
+          },
+          "firstBlood": false
+        }
+      },
+      "enemyTeam": {
+        "kills": 25,
+        "gold": 60535,
+        "objectives": {
+          "dragon": {
+            "kills": 1,
+            "first": true
+          },
+          "baron": {
+            "kills": 0,
+            "first": false
+          },
+          "riftHerald": {
+            "kills": 0,
+            "first": false
+          },
+          "tower": {
+            "kills": 4,
+            "first": true
+          },
+          "inhibitor": {
+            "kills": 0,
+            "first": false
+          },
+          "firstBlood": true
+        }
+      }
+    },
     {
       "matchId": "EUW1_7973255715",
       "champion": "Teemo",
@@ -330,85 +409,6 @@
           "firstBlood": false
         }
       }
-    },
-    {
-      "matchId": "EUW1_7970720153",
-      "champion": "Teemo",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Teemo.png",
-      "win": true,
-      "queueId": 420,
-      "queueName": "Ranked Solo/Duo",
-      "gameDurationSeconds": 1965,
-      "gameCreation": 1788359665329,
-      "kills": 6,
-      "deaths": 4,
-      "assists": 11,
-      "cs": 241,
-      "goldEarned": 15019,
-      "damageDealt": 31607,
-      "visionScore": 59,
-      "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/6653.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/4645.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3041.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3118.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3020.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3340.png"
-      ],
-      "team": {
-        "kills": 37,
-        "gold": 71399,
-        "objectives": {
-          "dragon": {
-            "kills": 2,
-            "first": false
-          },
-          "baron": {
-            "kills": 1,
-            "first": false
-          },
-          "riftHerald": {
-            "kills": 1,
-            "first": true
-          },
-          "tower": {
-            "kills": 8,
-            "first": true
-          },
-          "inhibitor": {
-            "kills": 1,
-            "first": true
-          },
-          "firstBlood": false
-        }
-      },
-      "enemyTeam": {
-        "kills": 36,
-        "gold": 64916,
-        "objectives": {
-          "dragon": {
-            "kills": 3,
-            "first": true
-          },
-          "baron": {
-            "kills": 1,
-            "first": true
-          },
-          "riftHerald": {
-            "kills": 0,
-            "first": false
-          },
-          "tower": {
-            "kills": 5,
-            "first": false
-          },
-          "inhibitor": {
-            "kills": 0,
-            "first": false
-          },
-          "firstBlood": true
-        }
-      }
     }
   ],
   "topChampions": [
@@ -416,7 +416,7 @@
       "name": "Teemo",
       "image": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Teemo.png",
       "level": 63,
-      "points": 666260
+      "points": 667812
     },
     {
       "name": "Ashe",
@@ -432,10 +432,7 @@
     }
   ],
   "liveGame": {
-    "inGame": true,
-    "gameMode": "CLASSIC",
-    "gameLengthMinutes": 24,
-    "championName": "Teemo"
+    "inGame": false
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -459,5 +456,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-05 17:37 UTC"
+  "lastUpdate": "2026-09-05 18:12 UTC"
 }
