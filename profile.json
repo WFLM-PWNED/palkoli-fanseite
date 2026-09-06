@@ -433,7 +433,10 @@
     }
   ],
   "liveGame": {
-    "inGame": false
+    "inGame": true,
+    "gameMode": "CLASSIC",
+    "gameLengthMinutes": 4,
+    "championName": "Teemo"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -457,5 +460,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-06 12:14 UTC"
+  "lastUpdate": "2026-09-06 12:42 UTC"
 }
