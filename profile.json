@@ -15,7 +15,7 @@
     {
       "matchId": "EUW1_7978381554",
       "champion": "Cho'Gath",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Chogath.png",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Chogath.png",
       "win": true,
       "queueId": 420,
       "queueName": "Ranked Solo/Duo",
@@ -29,12 +29,12 @@
       "damageDealt": 25493,
       "visionScore": 46,
       "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3068.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/2502.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3009.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3084.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3075.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3364.png"
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3068.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/2502.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3009.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3084.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3075.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3364.png"
       ],
       "team": {
         "kills": 53,
@@ -94,7 +94,7 @@
     {
       "matchId": "EUW1_7978229455",
       "champion": "Ashe",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Ashe.png",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Ashe.png",
       "win": false,
       "queueId": 420,
       "queueName": "Ranked Solo/Duo",
@@ -108,13 +108,13 @@
       "damageDealt": 22091,
       "visionScore": 45,
       "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/1086.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3026.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/2523.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/1053.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/1038.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3046.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3363.png"
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1086.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3026.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/2523.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1053.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1038.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3046.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3363.png"
       ],
       "team": {
         "kills": 28,
@@ -174,7 +174,7 @@
     {
       "matchId": "EUW1_7978214997",
       "champion": "Zac",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Zac.png",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Zac.png",
       "win": false,
       "queueId": 420,
       "queueName": "Ranked Solo/Duo",
@@ -188,10 +188,10 @@
       "damageDealt": 4286,
       "visionScore": 12,
       "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/1103.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3068.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3158.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3364.png"
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1103.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3068.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3158.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3364.png"
       ],
       "team": {
         "kills": 7,
@@ -251,7 +251,7 @@
     {
       "matchId": "EUW1_7978193994",
       "champion": "Teemo",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Teemo.png",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Teemo.png",
       "win": false,
       "queueId": 420,
       "queueName": "Ranked Solo/Duo",
@@ -265,11 +265,11 @@
       "damageDealt": 8072,
       "visionScore": 23,
       "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/6653.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/2420.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/1082.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3047.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3340.png"
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/6653.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/2420.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1082.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3047.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3340.png"
       ],
       "team": {
         "kills": 7,
@@ -329,7 +329,7 @@
     {
       "matchId": "EUW1_7975040343",
       "champion": "Teemo",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Teemo.png",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Teemo.png",
       "win": true,
       "queueId": 420,
       "queueName": "Ranked Solo/Duo",
@@ -343,13 +343,13 @@
       "damageDealt": 40260,
       "visionScore": 48,
       "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3118.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/6653.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3115.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3020.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3041.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3145.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3340.png"
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3118.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/6653.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3115.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3020.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3041.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3145.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3340.png"
       ],
       "team": {
         "kills": 41,
@@ -410,19 +410,19 @@
   "topChampions": [
     {
       "name": "Teemo",
-      "image": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Teemo.png",
+      "image": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Teemo.png",
       "level": 64,
       "points": 674662
     },
     {
       "name": "Ashe",
-      "image": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Ashe.png",
+      "image": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Ashe.png",
       "level": 52,
       "points": 541430
     },
     {
       "name": "Thresh",
-      "image": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Thresh.png",
+      "image": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Thresh.png",
       "level": 28,
       "points": 280435
     }
@@ -452,5 +452,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-09 19:11 UTC"
+  "lastUpdate": "2026-09-09 19:38 UTC"
 }
