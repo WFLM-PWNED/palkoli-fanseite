@@ -199,6 +199,14 @@
       "leaguePoints": 59,
       "wins": 211,
       "losses": 222
+    },
+    {
+      "timestamp": "2026-09-09T13:43:08Z",
+      "tier": "Emerald",
+      "rank": "4",
+      "leaguePoints": 38,
+      "wins": 211,
+      "losses": 223
     }
   ]
 }
