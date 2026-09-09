@@ -1,17 +1,94 @@
 {
   "tier": "Emerald",
   "rank": "4",
-  "leaguePoints": 38,
+  "leaguePoints": 18,
   "wins": 211,
-  "losses": 223,
+  "losses": 224,
   "recentForm": [
     "L",
     "L",
-    "L",
     "W",
+    "L",
     "L"
   ],
   "matches": [
+    {
+      "matchId": "EUW1_7978214997",
+      "champion": "Zac",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Zac.png",
+      "win": false,
+      "queueId": 420,
+      "queueName": "Ranked Solo/Duo",
+      "gameDurationSeconds": 933,
+      "gameCreation": 1788961653305,
+      "kills": 1,
+      "deaths": 6,
+      "assists": 1,
+      "cs": 91,
+      "goldEarned": 4968,
+      "damageDealt": 4286,
+      "visionScore": 12,
+      "items": [
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/1103.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3068.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3158.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3364.png"
+      ],
+      "team": {
+        "kills": 7,
+        "gold": 23860,
+        "objectives": {
+          "dragon": {
+            "kills": 1,
+            "first": false
+          },
+          "baron": {
+            "kills": 0,
+            "first": false
+          },
+          "riftHerald": {
+            "kills": 0,
+            "first": false
+          },
+          "tower": {
+            "kills": 0,
+            "first": false
+          },
+          "inhibitor": {
+            "kills": 0,
+            "first": false
+          },
+          "firstBlood": true
+        }
+      },
+      "enemyTeam": {
+        "kills": 28,
+        "gold": 36828,
+        "objectives": {
+          "dragon": {
+            "kills": 1,
+            "first": true
+          },
+          "baron": {
+            "kills": 0,
+            "first": false
+          },
+          "riftHerald": {
+            "kills": 0,
+            "first": false
+          },
+          "tower": {
+            "kills": 4,
+            "first": true
+          },
+          "inhibitor": {
+            "kills": 0,
+            "first": false
+          },
+          "firstBlood": false
+        }
+      }
+    },
     {
       "matchId": "EUW1_7978193994",
       "champion": "Teemo",
@@ -329,86 +406,6 @@
           "firstBlood": false
         }
       }
-    },
-    {
-      "matchId": "EUW1_7974272554",
-      "champion": "Teemo",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/champion/Teemo.png",
-      "win": false,
-      "queueId": 420,
-      "queueName": "Ranked Solo/Duo",
-      "gameDurationSeconds": 2389,
-      "gameCreation": 1788634314937,
-      "kills": 6,
-      "deaths": 11,
-      "assists": 8,
-      "cs": 240,
-      "goldEarned": 15861,
-      "damageDealt": 47077,
-      "visionScore": 100,
-      "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3020.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3118.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/4645.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3089.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3041.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/6653.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.17.1/img/item/3340.png"
-      ],
-      "team": {
-        "kills": 26,
-        "gold": 73044,
-        "objectives": {
-          "dragon": {
-            "kills": 3,
-            "first": false
-          },
-          "baron": {
-            "kills": 2,
-            "first": true
-          },
-          "riftHerald": {
-            "kills": 1,
-            "first": true
-          },
-          "tower": {
-            "kills": 7,
-            "first": false
-          },
-          "inhibitor": {
-            "kills": 1,
-            "first": false
-          },
-          "firstBlood": true
-        }
-      },
-      "enemyTeam": {
-        "kills": 34,
-        "gold": 80816,
-        "objectives": {
-          "dragon": {
-            "kills": 3,
-            "first": true
-          },
-          "baron": {
-            "kills": 1,
-            "first": false
-          },
-          "riftHerald": {
-            "kills": 0,
-            "first": false
-          },
-          "tower": {
-            "kills": 8,
-            "first": true
-          },
-          "inhibitor": {
-            "kills": 2,
-            "first": true
-          },
-          "firstBlood": false
-        }
-      }
     }
   ],
   "topChampions": [
@@ -456,5 +453,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-09 13:43 UTC"
+  "lastUpdate": "2026-09-09 14:12 UTC"
 }
