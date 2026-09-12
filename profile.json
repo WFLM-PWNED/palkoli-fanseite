@@ -432,9 +432,9 @@
   ],
   "liveGame": {
     "inGame": true,
-    "gameMode": "CHERRY",
-    "gameLengthMinutes": 17,
-    "championName": "Xerath"
+    "gameMode": "KIWI",
+    "gameLengthMinutes": 15,
+    "championName": "Zac"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -458,5 +458,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-12 18:12 UTC"
+  "lastUpdate": "2026-09-12 18:40 UTC"
 }
