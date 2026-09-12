@@ -431,7 +431,10 @@
     }
   ],
   "liveGame": {
-    "inGame": false
+    "inGame": true,
+    "gameMode": "CLASSIC",
+    "gameLengthMinutes": 6,
+    "championName": "Ashe"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -455,5 +458,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-12 11:10 UTC"
+  "lastUpdate": "2026-09-12 11:38 UTC"
 }
