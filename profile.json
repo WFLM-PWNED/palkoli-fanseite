@@ -1,17 +1,97 @@
 {
   "tier": "Emerald",
   "rank": "4",
-  "leaguePoints": 39,
+  "leaguePoints": 19,
   "wins": 214,
-  "losses": 226,
+  "losses": 227,
   "recentForm": [
-    "L",
     "W",
     "W",
     "L",
-    "W"
+    "W",
+    "L"
   ],
   "matches": [
+    {
+      "matchId": "EUW1_7981167294",
+      "champion": "Cho'Gath",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Chogath.png",
+      "win": false,
+      "queueId": 420,
+      "queueName": "Ranked Solo/Duo",
+      "gameDurationSeconds": 1624,
+      "gameCreation": 1789208273021,
+      "kills": 6,
+      "deaths": 11,
+      "assists": 4,
+      "cs": 170,
+      "goldEarned": 11278,
+      "damageDealt": 20935,
+      "visionScore": 32,
+      "items": [
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/2502.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3084.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3009.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3075.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1031.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3066.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3364.png"
+      ],
+      "team": {
+        "kills": 24,
+        "gold": 51613,
+        "objectives": {
+          "dragon": {
+            "kills": 0,
+            "first": false
+          },
+          "baron": {
+            "kills": 0,
+            "first": false
+          },
+          "riftHerald": {
+            "kills": 0,
+            "first": false
+          },
+          "tower": {
+            "kills": 4,
+            "first": false
+          },
+          "inhibitor": {
+            "kills": 0,
+            "first": false
+          },
+          "firstBlood": true
+        }
+      },
+      "enemyTeam": {
+        "kills": 39,
+        "gold": 60917,
+        "objectives": {
+          "dragon": {
+            "kills": 4,
+            "first": true
+          },
+          "baron": {
+            "kills": 1,
+            "first": true
+          },
+          "riftHerald": {
+            "kills": 1,
+            "first": true
+          },
+          "tower": {
+            "kills": 8,
+            "first": true
+          },
+          "inhibitor": {
+            "kills": 1,
+            "first": true
+          },
+          "firstBlood": false
+        }
+      }
+    },
     {
       "matchId": "EUW1_7981146834",
       "champion": "Cho'Gath",
@@ -328,86 +408,6 @@
           "firstBlood": true
         }
       }
-    },
-    {
-      "matchId": "EUW1_7978229455",
-      "champion": "Ashe",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Ashe.png",
-      "win": false,
-      "queueId": 420,
-      "queueName": "Ranked Solo/Duo",
-      "gameDurationSeconds": 1812,
-      "gameCreation": 1788963161020,
-      "kills": 5,
-      "deaths": 6,
-      "assists": 6,
-      "cs": 259,
-      "goldEarned": 12879,
-      "damageDealt": 22091,
-      "visionScore": 45,
-      "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1086.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3026.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/2523.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1053.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1038.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3046.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3363.png"
-      ],
-      "team": {
-        "kills": 28,
-        "gold": 54592,
-        "objectives": {
-          "dragon": {
-            "kills": 2,
-            "first": true
-          },
-          "baron": {
-            "kills": 1,
-            "first": true
-          },
-          "riftHerald": {
-            "kills": 0,
-            "first": false
-          },
-          "tower": {
-            "kills": 4,
-            "first": true
-          },
-          "inhibitor": {
-            "kills": 0,
-            "first": false
-          },
-          "firstBlood": true
-        }
-      },
-      "enemyTeam": {
-        "kills": 38,
-        "gold": 66804,
-        "objectives": {
-          "dragon": {
-            "kills": 2,
-            "first": false
-          },
-          "baron": {
-            "kills": 1,
-            "first": false
-          },
-          "riftHerald": {
-            "kills": 0,
-            "first": false
-          },
-          "tower": {
-            "kills": 9,
-            "first": false
-          },
-          "inhibitor": {
-            "kills": 1,
-            "first": true
-          },
-          "firstBlood": false
-        }
-      }
     }
   ],
   "topChampions": [
@@ -431,10 +431,7 @@
     }
   ],
   "liveGame": {
-    "inGame": true,
-    "gameMode": "CLASSIC",
-    "gameLengthMinutes": 15,
-    "championName": "Cho'Gath"
+    "inGame": false
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -458,5 +455,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-12 10:38 UTC"
+  "lastUpdate": "2026-09-12 11:10 UTC"
 }
