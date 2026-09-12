@@ -1,17 +1,96 @@
 {
   "tier": "Emerald",
   "rank": "4",
-  "leaguePoints": 19,
+  "leaguePoints": 0,
   "wins": 214,
-  "losses": 227,
+  "losses": 228,
   "recentForm": [
-    "W",
     "W",
     "L",
     "W",
+    "L",
     "L"
   ],
   "matches": [
+    {
+      "matchId": "EUW1_7981231811",
+      "champion": "Ashe",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Ashe.png",
+      "win": false,
+      "queueId": 420,
+      "queueName": "Ranked Solo/Duo",
+      "gameDurationSeconds": 1877,
+      "gameCreation": 1789212568652,
+      "kills": 3,
+      "deaths": 6,
+      "assists": 11,
+      "cs": 175,
+      "goldEarned": 12476,
+      "damageDealt": 14157,
+      "visionScore": 22,
+      "items": [
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1055.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3051.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3072.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3156.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3091.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3363.png"
+      ],
+      "team": {
+        "kills": 29,
+        "gold": 59849,
+        "objectives": {
+          "dragon": {
+            "kills": 2,
+            "first": true
+          },
+          "baron": {
+            "kills": 0,
+            "first": false
+          },
+          "riftHerald": {
+            "kills": 0,
+            "first": false
+          },
+          "tower": {
+            "kills": 5,
+            "first": false
+          },
+          "inhibitor": {
+            "kills": 0,
+            "first": false
+          },
+          "firstBlood": false
+        }
+      },
+      "enemyTeam": {
+        "kills": 38,
+        "gold": 63460,
+        "objectives": {
+          "dragon": {
+            "kills": 2,
+            "first": false
+          },
+          "baron": {
+            "kills": 1,
+            "first": true
+          },
+          "riftHerald": {
+            "kills": 0,
+            "first": false
+          },
+          "tower": {
+            "kills": 7,
+            "first": true
+          },
+          "inhibitor": {
+            "kills": 1,
+            "first": true
+          },
+          "firstBlood": true
+        }
+      }
+    },
     {
       "matchId": "EUW1_7981167294",
       "champion": "Cho'Gath",
@@ -329,85 +408,6 @@
           "firstBlood": true
         }
       }
-    },
-    {
-      "matchId": "EUW1_7978381554",
-      "champion": "Cho'Gath",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Chogath.png",
-      "win": true,
-      "queueId": 420,
-      "queueName": "Ranked Solo/Duo",
-      "gameDurationSeconds": 2129,
-      "gameCreation": 1788970870472,
-      "kills": 6,
-      "deaths": 8,
-      "assists": 10,
-      "cs": 228,
-      "goldEarned": 14875,
-      "damageDealt": 25493,
-      "visionScore": 46,
-      "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3068.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/2502.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3009.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3084.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3075.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3364.png"
-      ],
-      "team": {
-        "kills": 53,
-        "gold": 81698,
-        "objectives": {
-          "dragon": {
-            "kills": 4,
-            "first": true
-          },
-          "baron": {
-            "kills": 1,
-            "first": false
-          },
-          "riftHerald": {
-            "kills": 1,
-            "first": true
-          },
-          "tower": {
-            "kills": 11,
-            "first": true
-          },
-          "inhibitor": {
-            "kills": 3,
-            "first": true
-          },
-          "firstBlood": false
-        }
-      },
-      "enemyTeam": {
-        "kills": 46,
-        "gold": 77426,
-        "objectives": {
-          "dragon": {
-            "kills": 1,
-            "first": false
-          },
-          "baron": {
-            "kills": 1,
-            "first": true
-          },
-          "riftHerald": {
-            "kills": 0,
-            "first": false
-          },
-          "tower": {
-            "kills": 5,
-            "first": false
-          },
-          "inhibitor": {
-            "kills": 0,
-            "first": false
-          },
-          "firstBlood": true
-        }
-      }
     }
   ],
   "topChampions": [
@@ -421,7 +421,7 @@
       "name": "Ashe",
       "image": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Ashe.png",
       "level": 52,
-      "points": 543825
+      "points": 544537
     },
     {
       "name": "Thresh",
@@ -458,5 +458,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-12 11:38 UTC"
+  "lastUpdate": "2026-09-12 12:13 UTC"
 }
