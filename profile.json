@@ -430,7 +430,7 @@
   "liveGame": {
     "inGame": true,
     "gameMode": "CLASSIC",
-    "gameLengthMinutes": 0,
+    "gameLengthMinutes": 31,
     "championName": "Cho'Gath"
   },
   "challenges": {
@@ -455,5 +455,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-12 09:39 UTC"
+  "lastUpdate": "2026-09-12 10:11 UTC"
 }
