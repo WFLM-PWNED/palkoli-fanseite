@@ -428,7 +428,10 @@
     }
   ],
   "liveGame": {
-    "inGame": false
+    "inGame": true,
+    "gameMode": "CLASSIC",
+    "gameLengthMinutes": 0,
+    "championName": "Cho'Gath"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -452,5 +455,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-12 09:11 UTC"
+  "lastUpdate": "2026-09-12 09:39 UTC"
 }
