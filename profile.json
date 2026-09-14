@@ -439,6 +439,11 @@
     "percentile": "Top 3%",
     "highlights": [
       {
+        "name": "Gets The Wurm",
+        "level": "Challenger",
+        "value": 299.0
+      },
+      {
         "name": "Level 1 Fiesta",
         "level": "Challenger",
         "value": 483.0
@@ -447,13 +452,8 @@
         "name": "Global Defense System",
         "level": "Challenger",
         "value": 780.0
-      },
-      {
-        "name": "Gets The Wurm",
-        "level": "Challenger",
-        "value": 299.0
       }
     ]
   },
-  "lastUpdate": "2026-09-14 06:17 UTC"
+  "lastUpdate": "2026-09-14 06:46 UTC"
 }
