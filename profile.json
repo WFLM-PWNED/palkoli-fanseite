@@ -431,7 +431,10 @@
     }
   ],
   "liveGame": {
-    "inGame": false
+    "inGame": true,
+    "gameMode": "KIWI",
+    "gameLengthMinutes": 2,
+    "championName": "Sivir"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -455,5 +458,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-16 14:12 UTC"
+  "lastUpdate": "2026-09-16 14:41 UTC"
 }
