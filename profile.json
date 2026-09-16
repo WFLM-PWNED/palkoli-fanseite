@@ -434,10 +434,7 @@
     }
   ],
   "liveGame": {
-    "inGame": true,
-    "gameMode": "KIWI",
-    "gameLengthMinutes": 3,
-    "championName": "Illaoi"
+    "inGame": false
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -461,5 +458,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-16 18:44 UTC"
+  "lastUpdate": "2026-09-16 19:11 UTC"
 }
