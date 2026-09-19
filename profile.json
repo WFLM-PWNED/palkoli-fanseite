@@ -1,17 +1,96 @@
 {
   "tier": "Emerald",
-  "rank": "3",
-  "leaguePoints": 20,
+  "rank": "4",
+  "leaguePoints": 99,
   "wins": 220,
-  "losses": 229,
+  "losses": 230,
   "recentForm": [
     "W",
     "W",
-    "W",
     "L",
-    "W"
+    "W",
+    "L"
   ],
   "matches": [
+    {
+      "matchId": "EUW1_7988578006",
+      "champion": "Jinx",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Jinx.png",
+      "win": false,
+      "queueId": 420,
+      "queueName": "Ranked Solo/Duo",
+      "gameDurationSeconds": 1638,
+      "gameCreation": 1789826746332,
+      "kills": 6,
+      "deaths": 9,
+      "assists": 3,
+      "cs": 209,
+      "goldEarned": 13529,
+      "damageDealt": 20798,
+      "visionScore": 30,
+      "items": [
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3032.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3085.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3033.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1038.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1018.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3340.png"
+      ],
+      "team": {
+        "kills": 15,
+        "gold": 46593,
+        "objectives": {
+          "dragon": {
+            "kills": 1,
+            "first": true
+          },
+          "baron": {
+            "kills": 0,
+            "first": false
+          },
+          "riftHerald": {
+            "kills": 0,
+            "first": false
+          },
+          "tower": {
+            "kills": 0,
+            "first": false
+          },
+          "inhibitor": {
+            "kills": 0,
+            "first": false
+          },
+          "firstBlood": false
+        }
+      },
+      "enemyTeam": {
+        "kills": 48,
+        "gold": 62420,
+        "objectives": {
+          "dragon": {
+            "kills": 3,
+            "first": false
+          },
+          "baron": {
+            "kills": 1,
+            "first": true
+          },
+          "riftHerald": {
+            "kills": 1,
+            "first": true
+          },
+          "tower": {
+            "kills": 10,
+            "first": true
+          },
+          "inhibitor": {
+            "kills": 1,
+            "first": true
+          },
+          "firstBlood": true
+        }
+      }
+    },
     {
       "matchId": "EUW1_7988264978",
       "champion": "Veigar",
@@ -331,86 +410,6 @@
           "firstBlood": true
         }
       }
-    },
-    {
-      "matchId": "EUW1_7982167057",
-      "champion": "Ashe",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Ashe.png",
-      "win": true,
-      "queueId": 420,
-      "queueName": "Ranked Solo/Duo",
-      "gameDurationSeconds": 2219,
-      "gameCreation": 1789280672262,
-      "kills": 11,
-      "deaths": 8,
-      "assists": 17,
-      "cs": 279,
-      "goldEarned": 19474,
-      "damageDealt": 40924,
-      "visionScore": 48,
-      "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3026.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3046.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/2523.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3033.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3031.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1053.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3363.png"
-      ],
-      "team": {
-        "kills": 42,
-        "gold": 84403,
-        "objectives": {
-          "dragon": {
-            "kills": 4,
-            "first": false
-          },
-          "baron": {
-            "kills": 2,
-            "first": true
-          },
-          "riftHerald": {
-            "kills": 0,
-            "first": false
-          },
-          "tower": {
-            "kills": 10,
-            "first": false
-          },
-          "inhibitor": {
-            "kills": 2,
-            "first": false
-          },
-          "firstBlood": true
-        }
-      },
-      "enemyTeam": {
-        "kills": 38,
-        "gold": 79654,
-        "objectives": {
-          "dragon": {
-            "kills": 2,
-            "first": true
-          },
-          "baron": {
-            "kills": 1,
-            "first": false
-          },
-          "riftHerald": {
-            "kills": 1,
-            "first": true
-          },
-          "tower": {
-            "kills": 9,
-            "first": true
-          },
-          "inhibitor": {
-            "kills": 2,
-            "first": true
-          },
-          "firstBlood": false
-        }
-      }
     }
   ],
   "topChampions": [
@@ -434,10 +433,7 @@
     }
   ],
   "liveGame": {
-    "inGame": true,
-    "gameMode": "CLASSIC",
-    "gameLengthMinutes": 2,
-    "championName": "Jinx"
+    "inGame": false
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -461,5 +457,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-19 14:11 UTC"
+  "lastUpdate": "2026-09-19 14:38 UTC"
 }
