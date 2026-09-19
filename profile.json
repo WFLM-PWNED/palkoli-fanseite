@@ -434,7 +434,10 @@
     }
   ],
   "liveGame": {
-    "inGame": false
+    "inGame": true,
+    "gameMode": "CLASSIC",
+    "gameLengthMinutes": 2,
+    "championName": "Jinx"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -458,5 +461,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-19 13:38 UTC"
+  "lastUpdate": "2026-09-19 14:11 UTC"
 }
