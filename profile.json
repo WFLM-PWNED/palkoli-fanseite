@@ -1,17 +1,97 @@
 {
   "tier": "Emerald",
   "rank": "3",
-  "leaguePoints": 1,
-  "wins": 219,
+  "leaguePoints": 20,
+  "wins": 220,
   "losses": 229,
   "recentForm": [
     "W",
     "W",
     "W",
-    "W",
-    "L"
+    "L",
+    "W"
   ],
   "matches": [
+    {
+      "matchId": "EUW1_7988264978",
+      "champion": "Veigar",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Veigar.png",
+      "win": true,
+      "queueId": 420,
+      "queueName": "Ranked Solo/Duo",
+      "gameDurationSeconds": 1990,
+      "gameCreation": 1789797549049,
+      "kills": 8,
+      "deaths": 3,
+      "assists": 5,
+      "cs": 270,
+      "goldEarned": 16038,
+      "damageDealt": 31368,
+      "visionScore": 25,
+      "items": [
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1082.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3157.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1052.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3040.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/6657.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3089.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3363.png"
+      ],
+      "team": {
+        "kills": 26,
+        "gold": 72030,
+        "objectives": {
+          "dragon": {
+            "kills": 1,
+            "first": false
+          },
+          "baron": {
+            "kills": 1,
+            "first": true
+          },
+          "riftHerald": {
+            "kills": 1,
+            "first": true
+          },
+          "tower": {
+            "kills": 9,
+            "first": false
+          },
+          "inhibitor": {
+            "kills": 1,
+            "first": false
+          },
+          "firstBlood": false
+        }
+      },
+      "enemyTeam": {
+        "kills": 29,
+        "gold": 65702,
+        "objectives": {
+          "dragon": {
+            "kills": 3,
+            "first": true
+          },
+          "baron": {
+            "kills": 0,
+            "first": false
+          },
+          "riftHerald": {
+            "kills": 0,
+            "first": false
+          },
+          "tower": {
+            "kills": 7,
+            "first": true
+          },
+          "inhibitor": {
+            "kills": 1,
+            "first": true
+          },
+          "firstBlood": true
+        }
+      }
+    },
     {
       "matchId": "EUW1_7985802300",
       "champion": "Teemo",
@@ -331,86 +411,6 @@
           "firstBlood": false
         }
       }
-    },
-    {
-      "matchId": "EUW1_7981601074",
-      "champion": "Teemo",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/champion/Teemo.png",
-      "win": true,
-      "queueId": 420,
-      "queueName": "Ranked Solo/Duo",
-      "gameDurationSeconds": 1629,
-      "gameCreation": 1789233749484,
-      "kills": 9,
-      "deaths": 2,
-      "assists": 7,
-      "cs": 194,
-      "goldEarned": 14109,
-      "damageDealt": 24506,
-      "visionScore": 51,
-      "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3020.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3165.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3041.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/6653.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/1058.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3118.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.18.1/img/item/3340.png"
-      ],
-      "team": {
-        "kills": 36,
-        "gold": 65936,
-        "objectives": {
-          "dragon": {
-            "kills": 4,
-            "first": true
-          },
-          "baron": {
-            "kills": 1,
-            "first": true
-          },
-          "riftHerald": {
-            "kills": 1,
-            "first": true
-          },
-          "tower": {
-            "kills": 11,
-            "first": true
-          },
-          "inhibitor": {
-            "kills": 3,
-            "first": true
-          },
-          "firstBlood": false
-        }
-      },
-      "enemyTeam": {
-        "kills": 29,
-        "gold": 55398,
-        "objectives": {
-          "dragon": {
-            "kills": 0,
-            "first": false
-          },
-          "baron": {
-            "kills": 0,
-            "first": false
-          },
-          "riftHerald": {
-            "kills": 0,
-            "first": false
-          },
-          "tower": {
-            "kills": 3,
-            "first": false
-          },
-          "inhibitor": {
-            "kills": 0,
-            "first": false
-          },
-          "firstBlood": true
-        }
-      }
     }
   ],
   "topChampions": [
@@ -434,14 +434,11 @@
     }
   ],
   "liveGame": {
-    "inGame": true,
-    "gameMode": "CLASSIC",
-    "gameLengthMinutes": 12,
-    "championName": "Veigar"
+    "inGame": false
   },
   "challenges": {
     "totalLevel": "Diamond",
-    "totalPoints": 17645,
+    "totalPoints": 17650,
     "percentile": "Top 3%",
     "highlights": [
       {
@@ -461,5 +458,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-19 06:14 UTC"
+  "lastUpdate": "2026-09-19 06:42 UTC"
 }
