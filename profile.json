@@ -433,7 +433,7 @@
   "liveGame": {
     "inGame": true,
     "gameMode": "KIWI",
-    "gameLengthMinutes": 10,
+    "gameLengthMinutes": 19,
     "championName": "Veigar"
   },
   "challenges": {
@@ -458,5 +458,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-24 15:41 UTC"
+  "lastUpdate": "2026-09-24 16:13 UTC"
 }
