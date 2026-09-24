@@ -431,7 +431,10 @@
     }
   ],
   "liveGame": {
-    "inGame": false
+    "inGame": true,
+    "gameMode": "KIWI",
+    "gameLengthMinutes": 10,
+    "championName": "Veigar"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -455,5 +458,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-24 15:12 UTC"
+  "lastUpdate": "2026-09-24 15:41 UTC"
 }
