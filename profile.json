@@ -431,7 +431,10 @@
     }
   ],
   "liveGame": {
-    "inGame": false
+    "inGame": true,
+    "gameMode": "KIWI",
+    "gameLengthMinutes": 15,
+    "championName": "Jinx"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -455,5 +458,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-24 12:15 UTC"
+  "lastUpdate": "2026-09-24 12:45 UTC"
 }
