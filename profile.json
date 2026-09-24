@@ -431,7 +431,10 @@
     }
   ],
   "liveGame": {
-    "inGame": false
+    "inGame": true,
+    "gameMode": "KIWI",
+    "gameLengthMinutes": 1,
+    "championName": "Senna"
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -455,5 +458,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-09-24 16:41 UTC"
+  "lastUpdate": "2026-09-24 17:11 UTC"
 }
