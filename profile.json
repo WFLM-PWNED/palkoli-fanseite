@@ -439,9 +439,9 @@
     "percentile": "Top 3%",
     "highlights": [
       {
-        "name": "Gets The Wurm",
+        "name": "Level 1 Fiesta",
         "level": "Challenger",
-        "value": 300.0
+        "value": 483.0
       },
       {
         "name": "Get Paid, and Get Out",
@@ -449,11 +449,11 @@
         "value": 26491079.0
       },
       {
-        "name": "Level 1 Fiesta",
+        "name": "Global Defense System",
         "level": "Challenger",
-        "value": 483.0
+        "value": 783.0
       }
     ]
   },
-  "lastUpdate": "2026-10-06 07:14 UTC"
+  "lastUpdate": "2026-10-06 14:23 UTC"
 }
