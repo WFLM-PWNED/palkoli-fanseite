@@ -1,17 +1,97 @@
 {
   "tier": "Emerald",
   "rank": "4",
-  "leaguePoints": 52,
-  "wins": 225,
+  "leaguePoints": 72,
+  "wins": 226,
   "losses": 238,
   "recentForm": [
     "L",
     "L",
     "L",
-    "L",
+    "W",
     "W"
   ],
   "matches": [
+    {
+      "matchId": "EUW1_8012454990",
+      "champion": "Zilean",
+      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Zilean.png",
+      "win": true,
+      "queueId": 420,
+      "queueName": "Ranked Solo/Duo",
+      "gameDurationSeconds": 1838,
+      "gameCreation": 1791909245347,
+      "kills": 2,
+      "deaths": 7,
+      "assists": 22,
+      "cs": 77,
+      "goldEarned": 10845,
+      "damageDealt": 13863,
+      "visionScore": 84,
+      "items": [
+        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/4629.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/2065.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3876.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3158.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/4005.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/1028.png",
+        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3364.png"
+      ],
+      "team": {
+        "kills": 48,
+        "gold": 72997,
+        "objectives": {
+          "dragon": {
+            "kills": 2,
+            "first": false
+          },
+          "baron": {
+            "kills": 2,
+            "first": true
+          },
+          "riftHerald": {
+            "kills": 1,
+            "first": true
+          },
+          "tower": {
+            "kills": 9,
+            "first": true
+          },
+          "inhibitor": {
+            "kills": 1,
+            "first": true
+          },
+          "firstBlood": true
+        }
+      },
+      "enemyTeam": {
+        "kills": 30,
+        "gold": 59409,
+        "objectives": {
+          "dragon": {
+            "kills": 2,
+            "first": true
+          },
+          "baron": {
+            "kills": 0,
+            "first": false
+          },
+          "riftHerald": {
+            "kills": 0,
+            "first": false
+          },
+          "tower": {
+            "kills": 4,
+            "first": false
+          },
+          "inhibitor": {
+            "kills": 0,
+            "first": false
+          },
+          "firstBlood": false
+        }
+      }
+    },
     {
       "matchId": "EUW1_8012420569",
       "champion": "Cho'Gath",
@@ -326,86 +406,6 @@
           "firstBlood": true
         }
       }
-    },
-    {
-      "matchId": "EUW1_8010467033",
-      "champion": "Teemo",
-      "championImage": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Teemo.png",
-      "win": false,
-      "queueId": 420,
-      "queueName": "Ranked Solo/Duo",
-      "gameDurationSeconds": 2159,
-      "gameCreation": 1791732342466,
-      "kills": 7,
-      "deaths": 6,
-      "assists": 11,
-      "cs": 231,
-      "goldEarned": 15620,
-      "damageDealt": 37262,
-      "visionScore": 79,
-      "items": [
-        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3118.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/4645.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3020.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3041.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/6653.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/1058.png",
-        "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/item/3340.png"
-      ],
-      "team": {
-        "kills": 32,
-        "gold": 73043,
-        "objectives": {
-          "dragon": {
-            "kills": 1,
-            "first": false
-          },
-          "baron": {
-            "kills": 0,
-            "first": false
-          },
-          "riftHerald": {
-            "kills": 1,
-            "first": true
-          },
-          "tower": {
-            "kills": 5,
-            "first": true
-          },
-          "inhibitor": {
-            "kills": 0,
-            "first": false
-          },
-          "firstBlood": false
-        }
-      },
-      "enemyTeam": {
-        "kills": 51,
-        "gold": 79188,
-        "objectives": {
-          "dragon": {
-            "kills": 4,
-            "first": true
-          },
-          "baron": {
-            "kills": 2,
-            "first": true
-          },
-          "riftHerald": {
-            "kills": 0,
-            "first": false
-          },
-          "tower": {
-            "kills": 12,
-            "first": false
-          },
-          "inhibitor": {
-            "kills": 4,
-            "first": true
-          },
-          "firstBlood": true
-        }
-      }
     }
   ],
   "topChampions": [
@@ -429,10 +429,7 @@
     }
   ],
   "liveGame": {
-    "inGame": true,
-    "gameMode": "CLASSIC",
-    "gameLengthMinutes": 26,
-    "championName": "Zilean"
+    "inGame": false
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -442,7 +439,7 @@
       {
         "name": "Gets The Wurm",
         "level": "Challenger",
-        "value": 303.0
+        "value": 304.0
       },
       {
         "name": "Level 1 Fiesta",
@@ -456,5 +453,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-10-13 17:04 UTC"
+  "lastUpdate": "2026-10-13 21:55 UTC"
 }
