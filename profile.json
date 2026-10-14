@@ -442,16 +442,16 @@
         "value": 304.0
       },
       {
+        "name": "Get Paid, and Get Out",
+        "level": "Challenger",
+        "value": 26598310.0
+      },
+      {
         "name": "Level 1 Fiesta",
         "level": "Challenger",
         "value": 486.0
-      },
-      {
-        "name": "Global Defense System",
-        "level": "Challenger",
-        "value": 791.0
       }
     ]
   },
-  "lastUpdate": "2026-10-14 00:56 UTC"
+  "lastUpdate": "2026-10-14 05:56 UTC"
 }
