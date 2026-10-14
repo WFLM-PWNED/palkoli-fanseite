@@ -419,7 +419,7 @@
       "name": "Ashe",
       "image": "https://ddragon.leagueoflegends.com/cdn/16.20.1/img/champion/Ashe.png",
       "level": 53,
-      "points": 550920
+      "points": 552643
     },
     {
       "name": "Thresh",
@@ -453,5 +453,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-10-14 15:56 UTC"
+  "lastUpdate": "2026-10-14 20:03 UTC"
 }
