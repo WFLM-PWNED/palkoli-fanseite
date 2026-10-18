@@ -433,10 +433,7 @@
     }
   ],
   "liveGame": {
-    "inGame": true,
-    "gameMode": "KIWI",
-    "gameLengthMinutes": 18,
-    "championName": "Malzahar"
+    "inGame": false
   },
   "challenges": {
     "totalLevel": "Diamond",
@@ -460,5 +457,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-10-18 16:23 UTC"
+  "lastUpdate": "2026-10-18 18:47 UTC"
 }
