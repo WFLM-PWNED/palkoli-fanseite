@@ -415,7 +415,7 @@
       "name": "Teemo",
       "image": "https://ddragon.leagueoflegends.com/cdn/16.22.1/img/champion/Teemo.png",
       "level": 66,
-      "points": 691611
+      "points": 693001
     },
     {
       "name": "Ashe",
@@ -444,16 +444,16 @@
         "value": 304.0
       },
       {
-        "name": "Get Paid, and Get Out",
-        "level": "Challenger",
-        "value": 26686217.0
-      },
-      {
         "name": "Level 1 Fiesta",
         "level": "Challenger",
         "value": 488.0
+      },
+      {
+        "name": "Global Defense System",
+        "level": "Challenger",
+        "value": 795.0
       }
     ]
   },
-  "lastUpdate": "2026-11-05 01:42 UTC"
+  "lastUpdate": "2026-11-05 09:04 UTC"
 }
