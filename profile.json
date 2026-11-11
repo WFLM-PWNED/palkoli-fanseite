@@ -413,7 +413,7 @@
       "name": "Teemo",
       "image": "https://ddragon.leagueoflegends.com/cdn/16.22.1/img/champion/Teemo.png",
       "level": 67,
-      "points": 703898
+      "points": 705212
     },
     {
       "name": "Ashe",
@@ -433,7 +433,7 @@
   },
   "challenges": {
     "totalLevel": "Diamond",
-    "totalPoints": 17695,
+    "totalPoints": 17715,
     "percentile": "Top 4%",
     "highlights": [
       {
@@ -453,5 +453,5 @@
       }
     ]
   },
-  "lastUpdate": "2026-11-11 15:02 UTC"
+  "lastUpdate": "2026-11-11 22:07 UTC"
 }
